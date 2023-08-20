@@ -1,0 +1,34 @@
+.container {
+  padding: 25px;
+  background-color: rgb(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid white;
+  border-radius: var(--borderRadius);
+}
+
+.image {
+  width: 78%;
+  margin-bottom: 10px;
+  mix-blend-mode: screen;
+}
+
+.image > img {
+  mix-blend-mode: screen;
+}
+
+.container > p {
+  margin-bottom: 5px;
+}
+
+.info {
+  display: flex;
+  gap: 10px;
+  border: 1px solid white;
+  padding: 10px 20px;
+  width: 100%;
+  margin-top: auto;
+}

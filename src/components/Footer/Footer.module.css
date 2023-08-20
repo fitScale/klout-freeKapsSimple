@@ -1,0 +1,123 @@
+.footer {
+  position: relative;
+  background-color: black;
+  padding-bottom: 50px;
+  border-top: 2px solid white;
+  margin-top: 40px;
+}
+
+.mobileFooter {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  gap: 40px;
+  padding: 50px 24px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.linkStory {
+  width: 100%;
+  padding: 15px;
+  background-color: var(--bg700);
+  color: white;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  border-radius: var(--borderRadius);
+  border: 1px solid white;
+}
+
+.desktopFooter {
+  display: none;
+}
+
+.footer > div > div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer > div > p:nth-child(1) {
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.emailAdd > div {
+  width: 100%;
+  padding: var(--optionPadding);
+  background-color: black;
+  border: 1px solid white;
+  border-radius: var(--borderRadius);
+  display: flex;
+  justify-content: space-between;
+  color: var(--bg600);
+}
+
+.footerMenu > ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.footerMenu > ul > li {
+  text-decoration: underline;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 125%;
+  font-family: var(--archivo);
+}
+
+.imageContainer {
+  flex: 0;
+}
+
+.fitScale {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translatex(-50%);
+  font-family: var(--Inter);
+  color: var(--bg500);
+  font-size: 12px;
+}
+
+@media (min-width: 961px) {
+  .footer {
+    position: relative;
+    background-color: black;
+    padding-bottom: 20px;
+  }
+
+  .mobileFooter {
+    display: none;
+  }
+
+  .desktopFooter {
+    color: white;
+    background-color: black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 48px;
+    gap: 50px;
+  }
+
+  .desktopFooter > div {
+    flex: 1;
+  }
+  .imageContainer {
+    position: relative;
+  }
+
+  .smallImage {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 140.8px;
+    height: 62.8px;
+  }
+}

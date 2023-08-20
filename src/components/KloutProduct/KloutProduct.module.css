@@ -1,0 +1,262 @@
+.main {
+  position: relative;
+  overflow: hidden;
+}
+
+.main > div:first-child {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  z-index: 1;
+}
+
+.main > div:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.backgroundImages {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.backgroundImages > div:first-child {
+  width: 100%;
+  aspect-ratio: 1080/1622;
+}
+
+.buffer {
+  width: 100%;
+  aspect-ratio: 1080/1500;
+}
+
+.body {
+  padding: 0px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.heading > h1 {
+  text-align: left;
+  font-size: 20px;
+}
+
+.heading > h2 {
+  text-align: left;
+  font-size: 16px;
+}
+
+.heading > p {
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.price {
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+.servings {
+  font-size: 14px;
+  color: rgb(159, 159, 159);
+}
+
+.breakdown {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.breakdown > p {
+  font-weight: 800;
+}
+
+.infoBoxes {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.productInfoGrid {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.reviews {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reviews > p {
+  font-size: 12px;
+  color: rgb(167, 167, 167);
+}
+
+.desktopMain {
+  display: none;
+}
+
+@media (min-width: 961px) {
+  .main {
+    display: none;
+  }
+  .desktopMain {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    min-height: 3000px;
+    text-align: left;
+  }
+
+  .desktopMain > div:first-child {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    width: 65px;
+  }
+
+  .backgroundImage {
+    position: absolute;
+    top: -125px;
+    left: -40px;
+    width: 100%;
+    z-index: -1;
+  }
+  .mainCopy {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 60px 48px;
+    align-items: flex-end;
+    width: 100%;
+    padding-bottom: 0px;
+  }
+
+  .mainCopy > a:last-child {
+    width: 50%;
+  }
+  .headingDesktop {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .headingDesktop > h1 {
+    text-align: left;
+  }
+  .starsContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .description {
+    width: 50%;
+  }
+  .valuesDesktop {
+    width: 50%;
+  }
+  .breakdown {
+    text-align: left;
+    width: 50%;
+  }
+  .infoGrid {
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .infoGrid > div > h4 {
+    font-size: 16px;
+  }
+  .productCards {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0px 48px;
+  }
+  .reviews {
+    position: relative;
+    width: 100%;
+    padding: 50px 48px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .reviews > a {
+    width: 100%;
+  }
+
+  .reviews > a > p {
+    padding: 25px 0px;
+  }
+
+  .reviewsBackground {
+    position: absolute;
+    top: 125px;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+
+  .reviewHeading {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .reviewHeading > h1 {
+    width: 60%;
+    text-align: center;
+  }
+
+  .reviewHeading > p {
+    font-size: 16px;
+    font-weight: 700;
+    width: 60%;
+    text-align: center;
+  }
+
+  .reviewHeading > div {
+    background-color: black;
+    padding: 15px 75px;
+    border: 1px solid white;
+    display: flex;
+    gap: 10px;
+  }
+  .reviewGrid {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+}

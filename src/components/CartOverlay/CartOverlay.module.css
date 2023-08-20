@@ -1,0 +1,328 @@
+.container {
+  height: 100%;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  backdrop-filter: blur(5px) brightness(70%) opacity(0);
+  transition: backdrop-filter 0.2s;
+}
+
+.fadeBg {
+  backdrop-filter: blur(5px) brightness(70%) opacity(1);
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.close {
+  height: 24%;
+}
+
+.cartContainer {
+  height: 75%;
+  max-width: 100vw;
+  background-image: url("https://res.cloudinary.com/dod9nbjke/image/upload/v1689358491/VZN/Misc%20Assets/BackgroundMobileBackgroundFadeLight-min_bh0xbu.jpg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: repeat-y;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  border-top-left-radius: var(--borderRadius);
+  border-top-right-radius: var(--borderRadius);
+  border: 2px solid black;
+  padding: var(--boxPadding);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  transform: translateY(0%);
+  transition: transform 0.2s;
+}
+
+.cartContainer > div {
+  margin-bottom: 20px;
+}
+
+.cartContainer > div:last-child {
+  margin-bottom: 150px;
+}
+
+.moveCart {
+  transform: translateY(100%);
+}
+
+.cartLoadingContainer {
+  position: relative;
+  height: 75%;
+  width: 100%;
+  background-image: url("https://res.cloudinary.com/dod9nbjke/image/upload/v1689358491/VZN/Misc%20Assets/BackgroundMobileBackgroundFadeLight-min_bh0xbu.jpg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: repeat-y;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  border-top-left-radius: var(--borderRadius);
+  border-top-right-radius: var(--borderRadius);
+  border: 2px solid black;
+  display: grid;
+  place-items: center;
+}
+
+.emptyCart {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  gap: 20px;
+  text-align: center;
+}
+
+.divider {
+  width: calc(100% + 48px);
+  transform: translateX(-24px);
+  height: 2px;
+  background-color: black;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.slider {
+  overflow-x: scroll;
+  overflow-y: visible;
+}
+
+.checkoutLink {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  backdrop-filter: blur(5px) brightness(50%);
+  border-top: 3px solid black;
+  padding: var(--boxPadding);
+  width: 100%;
+  height: fit-content;
+  z-index: 5;
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.checkoutButton {
+  color: white;
+  display: flex;
+  gap: 10px;
+  background-color: var(--primaryColor);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: var(--borderRadius);
+  border: 2px solid white;
+  animation: pluse 1s linear infinite alternate;
+}
+
+.checkoutLink > p {
+  color: white;
+}
+
+.checkoutFade {
+  opacity: 1;
+}
+
+.spinnerContainer {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.recommeneded > div:nth-child(1) {
+  margin-bottom: 15px;
+}
+
+.desktopBuffer {
+  display: none;
+}
+
+@media (min-width: 961px) {
+  .container {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    backdrop-filter: blur(5px) brightness(70%) opacity(0);
+    transition: backdrop-filter 0.2s;
+  }
+
+  .desktopBuffer {
+    height: 200px;
+    display: block;
+  }
+
+  .fadeBg {
+    backdrop-filter: blur(5px) brightness(70%) opacity(1);
+  }
+
+  .hidden {
+    visibility: hidden;
+  }
+
+  .close {
+    width: 65%;
+    height: 100vh;
+  }
+
+  .cartContainer {
+    width: 35%;
+    height: 100vh;
+    background-image: url("https://res.cloudinary.com/dod9nbjke/image/upload/v1689358491/VZN/Misc%20Assets/BackgroundMobileBackgroundFadeLight-min_bh0xbu.jpg");
+    background-size: cover;
+    background-position: top;
+    background-repeat: repeat-y;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    border-top-left-radius: var(--borderRadius);
+    border-top-right-radius: var(--borderRadius);
+    border: 2px solid black;
+    padding: 35px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    transform: translateY(0%);
+    transition: transform 0.2s;
+    border-left: 3px solid black;
+  }
+
+  .cartContainer > div {
+    margin-bottom: 20px;
+  }
+
+  .cartContainer > div:last-child {
+    margin-bottom: 150px;
+  }
+
+  .moveCart {
+    transform: translateX(100%);
+  }
+
+  .desktopMove {
+    transform: translateX(100%);
+  }
+
+  .recommeneded {
+    display: none;
+  }
+
+  .cartLoadingContainer {
+    position: relative;
+    height: 75%;
+    width: 100%;
+    background-image: url("https://res.cloudinary.com/dod9nbjke/image/upload/v1689358491/VZN/Misc%20Assets/BackgroundMobileBackgroundFadeLight-min_bh0xbu.jpg");
+    background-size: cover;
+    background-position: top;
+    background-repeat: repeat-y;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    border-top-left-radius: var(--borderRadius);
+    border-top-right-radius: var(--borderRadius);
+    border: 2px solid black;
+    display: grid;
+    place-items: center;
+  }
+
+  .emptyCart {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .divider {
+    width: calc(100% + 48px);
+    transform: translateX(-24px);
+    height: 2px;
+    background-color: black;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .slider {
+    overflow-x: scroll;
+    overflow-y: visible;
+  }
+
+  .checkoutLink {
+    position: fixed;
+    bottom: 0;
+    backdrop-filter: blur(5px) brightness(60%);
+    border-top: 3px solid black;
+    border-left: 3px solid black;
+    padding: 35px;
+    width: 35%;
+    height: fit-content;
+    z-index: 5;
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0;
+    transition: all 0.2s;
+    padding-right: 45px;
+  }
+
+  .desktopMove {
+    transform: translateX(100%);
+  }
+
+  .checkoutButton {
+    color: white;
+    display: flex;
+    gap: 10px;
+    background-color: var(--primaryColor);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: var(--borderRadius);
+    border: 2px solid white;
+    cursor: pointer;
+  }
+
+  .checkoutLink > p {
+    color: white;
+  }
+
+  .checkoutFade {
+    opacity: 1;
+  }
+
+  .spinnerContainer {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+}
+
+@keyframes pluse {
+  0% {
+    filter: brightness(100%);
+    text-shadow: 0px 0px 10px rgb(255, 255, 255, 0.1);
+  }
+  100% {
+    filter: brightness(125%);
+    text-shadow: 0px 0px 10px white;
+  }
+}

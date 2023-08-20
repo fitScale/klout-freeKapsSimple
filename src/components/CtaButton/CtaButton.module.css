@@ -1,0 +1,10 @@
+.cta {
+  background-color: var(--primaryColor);
+  padding: 20px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  border: 2px solid white;
+  border-radius: var(--borderRadius);
+  width: 100%;
+}

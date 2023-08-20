@@ -1,0 +1,146 @@
+.container {
+  position: relative;
+  background-color: rgb(0, 0, 0, 0.5);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.container > div:first-child {
+  width: 100%;
+}
+
+.title {
+  font-weight: 800;
+  text-align: center;
+}
+
+.price {
+  font-size: 14px;
+  text-align: center;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.description {
+  display: none;
+}
+
+.values {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.values > div {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.values > div > p {
+  font-size: 11px;
+}
+
+.container > a {
+  width: 100%;
+}
+
+.cta {
+  padding: 10px;
+  background-color: var(--primaryColor);
+  display: grid;
+  place-items: center;
+  border: 1px solid white;
+}
+
+.cta > p {
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.selectP {
+  background-color: var(--primaryColor);
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  display: grid;
+  place-items: center;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.selectP > p {
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.desktopServings {
+  display: none;
+}
+
+@media (min-width: 961px) {
+  .desktopServings {
+    display: inline;
+  }
+
+  .container > a {
+    margin-top: auto;
+    width: 100%;
+  }
+
+  .container {
+    padding: 30px;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .description {
+    display: block;
+  }
+
+  .description > p {
+    font-size: 14px;
+  }
+
+  .price {
+    font-size: 16px;
+    font-weight: 700;
+    text-align: left;
+    text-decoration: none;
+    margin-bottom: 20px;
+  }
+
+  .values {
+    display: none;
+  }
+  .title {
+    font-weight: 800;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .stars {
+    display: none;
+  }
+
+  .cta {
+    padding: 10px;
+    background-color: var(--primaryColor);
+    width: calc(100%);
+    transform: translateX(0px);
+    display: grid;
+    place-items: center;
+    border: 1px solid white;
+  }
+
+  .values > div > p {
+    font-size: 16px;
+  }
+}

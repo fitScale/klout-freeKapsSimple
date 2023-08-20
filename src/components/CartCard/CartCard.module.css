@@ -1,0 +1,123 @@
+.proxyContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.container {
+  position: relative;
+  border: 1px solid black;
+  border-radius: var(--borderRadius);
+  box-shadow: var(--boxOutlineDark);
+  padding: var(--optionPadding);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.callout {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primaryColor);
+  border-radius: var(--borderRadius);
+  padding: 3px 20px;
+  color: white;
+  border: 1px solid black;
+  font-size: 13px;
+  width: max-content;
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.copyContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.heading > p:nth-child(2) {
+  color: var(--primaryColor);
+}
+
+.pricing {
+  display: flex;
+  gap: 5px;
+}
+
+.pricing > p:nth-child(1) {
+  font-weight: 800;
+}
+
+.pricing > p:nth-child(2) {
+  font-style: italic;
+  color: var(--bg600);
+}
+
+.imageBox {
+  height: 100px;
+  padding: 5px;
+  aspect-ratio: 1/1;
+  border-radius: var(--borderRadius);
+  border: 1px solid black;
+  box-shadow: var(--boxOutlineDark);
+}
+
+.divider {
+  width: calc(100% + 30px);
+  background-color: black;
+  height: 1px;
+  transform: translate(-15px);
+}
+
+.warning {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: var(--borderRadius);
+  box-shadow: var(--boxOutlineDark);
+  padding: var(--optionPadding);
+}
+
+.trash {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translatey(-50%);
+}
+.footerContiner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.quantityChange {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+}
+
+.warning > div > p {
+  font-style: italic;
+}
+
+.warning > p {
+  font-weight: 700;
+  font-size: 13px;
+}

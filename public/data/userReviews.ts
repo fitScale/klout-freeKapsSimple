@@ -1,0 +1,86 @@
+import { UserReviewProps } from "@/components/UserReview/UserReview.component";
+
+const reviews: UserReviewProps[] = [
+  {
+    heading: "The BEST pump",
+    text: "The BEST pump I have ever received. If you want to feel like you are going to bust through your shirt, take pump kaps!",
+    stars: 5,
+    darkTheme: true,
+    themeColor: "var(--primaryColor)",
+    name: "Taryn P.",
+  },
+  {
+    heading: "Pump like never before",
+    text: "Stacking with the kaio gives me a pump like never before. Great product!",
+    stars: 5,
+    darkTheme: true,
+    themeColor: "var(--primaryColor)",
+    name: "Christopher T.",
+  },
+  {
+    heading: "Good extra pump",
+    text: "Gives you a good extra pump!",
+    stars: 5,
+    darkTheme: true,
+    themeColor: "var(--primaryColor)",
+    name: "Donterrius W.",
+  },
+  {
+    heading: "Best pump product I have taken",
+    text: "Best pump product I have taken, as soon as I get to the gym the blood flow is insane and the pump level is to the roof!! 100/10 recommend",
+    stars: 5,
+    darkTheme: true,
+    themeColor: "var(--primaryColor)",
+    name: "Victor S.",
+  },
+  {
+    heading: " I’m zoned in",
+    text: "I take these as I’m headed out the door to the gym and by the time I’m done a warm up I’m zoned in. Makes me sweat like crazy so stay hydrated. Pump in illegal.",
+    stars: 5,
+    darkTheme: true,
+    themeColor: "var(--primaryColor)",
+    name: "Jojo M.",
+  },
+  {
+    heading: "Feel huge everytime😈",
+    text: "Skin splitting pumps!! Makes me feel huge everytime😈",
+    stars: 5,
+    darkTheme: true,
+    themeColor: "var(--primaryColor)",
+    name: "Conner A.",
+  },
+  {
+    heading: "Best pump product",
+    text: "Easily the best pump product ever. Not only are the pumps amazing, but the workout this gave me was by far one of the best workouts I’ve had",
+    stars: 5,
+    darkTheme: true,
+    themeColor: "var(--primaryColor)",
+    name: "James N.",
+  },
+  {
+    heading: "Beats any powder",
+    text: "Best pump product I’ve ever had, this stuff beats any powder form of pump I’ve had",
+    stars: 5,
+    darkTheme: true,
+    themeColor: "var(--primaryColor)",
+    name: "Gage W.",
+  },
+  {
+    heading: "Guaranteed good pump",
+    text: "Pump Kaps are so convenient just take 3 capsules and you’re guaranteed a good pump. I typically don’t have a workout without them. I’m always trying to get the most out of my workouts and maximize pumps.",
+    stars: 5,
+    darkTheme: true,
+    themeColor: "var(--primaryColor)",
+    name: "Brandon F.",
+  },
+  {
+    heading: "Pumps that are out of this mofo world",
+    text: "Stack this with the Mamba and you will have pumps that are out of this mofo world 😈💪🏽🧪BEST COMPANY in the industry",
+    stars: 5,
+    darkTheme: true,
+    themeColor: "var(--primaryColor)",
+    name: "Andrew L.",
+  },
+];
+
+export default reviews;

@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.heading {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.heading > p {
+  text-align: center;
+}
+
+.slider {
+  width: max-content;
+  display: flex;
+  overflow-x: scroll;
+  padding-bottom: 5px;
+  gap: 10px;
+  width: calc(100% + 48px);
+}
+
+.slider > div {
+  display: flex;
+  gap: 10px;
+  padding-right: 48px;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}

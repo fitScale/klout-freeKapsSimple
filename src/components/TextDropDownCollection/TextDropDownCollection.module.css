@@ -1,0 +1,35 @@
+.container {
+  padding: var(--boxPadding);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: var(--borderRadius);
+}
+
+.headingContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+}
+
+.dropDownContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+@media (min-width: 961px) {
+  .container {
+    padding: 0px;
+  }
+
+  .headingContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
+  }
+}
+@media (min-width: 1025px) {
+}

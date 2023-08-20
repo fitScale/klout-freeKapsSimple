@@ -1,0 +1,19 @@
+.outerContainer {
+  width: calc(100% + 48px);
+  overflow-x: scroll;
+  transform: translatex(-24px);
+  padding-bottom: 5px;
+}
+
+.container {
+  display: flex;
+  width: fit-content;
+  gap: 10px;
+  padding-right: 24px;
+  transform: translateX(24px);
+  padding-right: 24px;
+}
+
+.outerContainer::-webkit-scrollbar {
+  display: none;
+}

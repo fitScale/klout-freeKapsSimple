@@ -1,0 +1,470 @@
+.cta {
+  background-color: var(--primaryColor);
+  padding: 20px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  border: 2px solid white;
+  border-radius: var(--borderRadius);
+}
+
+.desktop {
+  display: none;
+}
+
+.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0px;
+  min-height: 3000px;
+}
+
+.main > div:first-child {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(-85%);
+}
+
+.logo {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top: 20px;
+  left: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 50px;
+  width: 100%;
+}
+
+.header > p {
+  color: var(--primaryColor);
+  font-weight: 800;
+}
+
+.heroBackground {
+  position: absolute;
+  width: 100%;
+  top: 95px;
+  left: 0;
+  z-index: -1;
+}
+
+.mobileProducts {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  animation: float 1.75s ease-in-out infinite alternate;
+}
+
+.heroCopy {
+  margin-top: 10px;
+  aspect-ratio: 9/16;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 24px;
+}
+
+.heroCopy > div:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heroCopy > div:nth-child(1) > div {
+  transform: translatey(-3px);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.heroCopy > div:nth-child(2) {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.heroCopy > div:nth-child(2) > h3:nth-child(1) {
+  width: 70%;
+  font-size: 15px;
+}
+
+.heroCopy > div:nth-child(2) > h3:nth-child(2) {
+  transform: translatey(-5px);
+  font-size: 11px;
+  width: 40%;
+  text-align: right;
+  margin-left: auto;
+}
+
+.retail {
+  font-weight: 900;
+}
+
+.price {
+  color: rgb(183, 183, 183);
+  text-decoration: line-through;
+}
+
+.ctaCopy {
+  transform: translateY(-210%);
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ctaCopy > a:nth-child(1) {
+  margin-bottom: 20px;
+}
+
+.ctaCopy > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ctaCopy > div:nth-child(2) > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.heroBuffer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  aspect-ratio: 1080/1700;
+  padding: 0px 24px;
+}
+
+.backgroundBlackBuffer {
+  height: 100px;
+  width: 100%;
+}
+
+.heroBuffer > a {
+  margin-bottom: 20px;
+}
+
+.pumpInfo {
+  margin-top: 25px;
+  min-height: 100px;
+  border-top: 2px solid white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 0px 0px 5px white;
+}
+
+.pumpInfo {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  border-bottom: 2px solid white;
+  padding: 42px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pumpInfo > div:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.pumpInfo > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.pumpInfo > a:last-child {
+  margin-top: 10px;
+}
+
+.productInfo {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  padding: 42px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.productInfo > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 450px;
+}
+
+.productInfo > div:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.productInfoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.socialProof {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 961px) {
+  .main {
+    display: none;
+  }
+
+  .desktop {
+    display: flex;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+  }
+
+  .desktopLogo {
+    width: 150px;
+  }
+  .desktopBackgroundHero {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+
+    overflow: hidden;
+  }
+
+  .heroText {
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
+
+  .heroText > p {
+    font-weight: 800;
+    font-size: 18px;
+  }
+
+  .heroText > p:nth-child(1) {
+    position: absolute;
+    top: 25%;
+    left: 12%;
+    width: 20%;
+  }
+
+  .heroText > p:nth-child(2) {
+    position: absolute;
+    top: 50%;
+    text-align: right;
+    right: 10%;
+    width: 18%;
+  }
+
+  .header {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--primaryColor);
+    padding: 0px 48px;
+  }
+
+  .header > div:nth-child(2) {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .header > div:nth-child(2) > p {
+    font-weight: 900;
+  }
+
+  .heroCopyDesktop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bannerOffsetDesktop {
+    height: 600px;
+  }
+  .pumpInfoDesktop {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-end;
+    text-align: right;
+    padding: 20px 48px;
+    border-bottom: 2px solid white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .pumpInfoDesktop > h2 {
+    font-size: 30px;
+  }
+
+  .pumpInfoDesktop > p {
+    width: 60%;
+  }
+
+  .desktopInfoBoxes {
+    display: flex;
+    width: 60%;
+    gap: 15px;
+  }
+
+  .desktopInfoBoxes > div {
+    flex: 1;
+    text-align: center;
+  }
+
+  .desktopInfoBoxes > div > p {
+    margin-bottom: 50px;
+  }
+
+  .pumpInfoDesktop > a:last-child {
+    margin-top: 20px;
+    width: 60%;
+    margin-bottom: 110px;
+  }
+  .productInfoDesktop {
+    margin-top: 75px;
+    position: relative;
+    padding: 0px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border-bottom: 2px solid white;
+    padding-bottom: 70px;
+  }
+
+  .desktopProductBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -2;
+    transform: translateY(-20%);
+  }
+
+  .productCopyDesktop {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .productCopyDesktop > h2 {
+    font-size: 28px;
+  }
+  .productCopyDesktop > p {
+    width: 50%;
+  }
+
+  .desktopKaps {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 50%;
+    gap: 20px;
+  }
+  .reviews {
+    position: relative;
+    width: 100%;
+    padding: 60px 48px;
+  }
+
+  .reviewsBackground {
+    position: absolute;
+    top: 125px;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+
+  .reviewHeading {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .reviewHeading > h1 {
+    width: 60%;
+    text-align: center;
+  }
+
+  .reviewHeading > p {
+    font-size: 16px;
+    font-weight: 700;
+    width: 60%;
+    text-align: center;
+  }
+
+  .reviewHeading > div {
+    background-color: black;
+    padding: 15px 75px;
+    border: 1px solid white;
+    display: flex;
+    gap: 10px;
+  }
+  .reviewGrid {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes pluse {
+  0% {
+    filter: brightness(100%);
+    text-shadow: 0px 0px 10px rgb(255, 255, 255, 0.1);
+  }
+  100% {
+    filter: brightness(125%);
+    text-shadow: 0px 0px 10px white;
+  }
+}

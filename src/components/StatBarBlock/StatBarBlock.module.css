@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: var(--boxPadding);
+  border-radius: var(--borderRadius);
+}
+
+.copyContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.barsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.statBarContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.statBarCopy {
+  display: flex;
+  gap: 10px;
+}
+
+.statBar {
+  height: 11px;
+  border-radius: 50px;
+  animation: flashAnimation 1s ease-out infinite alternate;
+}
+
+@keyframes flashAnimation {
+  0% {
+    filter: brightness(75%);
+  }
+  100% {
+    filter: brightness(125%);
+  }
+}

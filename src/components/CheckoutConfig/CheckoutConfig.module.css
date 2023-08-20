@@ -1,0 +1,124 @@
+.container {
+  background-color: var(--bg800);
+  border-radius: var(--borderRadius);
+  border: 1px solid var(--bg500);
+  padding: var(--boxPadding);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.optionsContainer {
+  padding: var(--optionPadding);
+  background-color: var(--bg700);
+  border-radius: var(--borderRadius);
+  border: 1px solid var(--bg600);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.optionsHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.options > a > p {
+  padding: 5px 10px;
+  border-radius: var(--borderRadius);
+  color: white;
+  transition: filter 0.2s;
+  cursor: pointer;
+}
+
+.subscriptionContainer {
+  border-radius: var(--borderRadius);
+  padding: var(--optionPadding);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: filter 0.2s;
+  cursor: pointer;
+}
+
+.subscriptionHeader {
+  display: flex;
+  gap: 10px;
+}
+
+.indicator {
+  display: grid;
+  place-items: center;
+  height: 21px;
+  aspect-ratio: 1/1;
+  border-radius: 50px;
+}
+
+.indicator > div {
+  height: 50%;
+  aspect-ratio: 1/1;
+  background-color: white;
+  border-radius: 50px;
+  border: 1px solid black;
+}
+
+.subscriptionPrices {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comparePrices {
+  display: flex;
+  gap: 10px;
+}
+
+.subscriptionBonuses {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.oneTimeContainer {
+  border-radius: var(--borderRadius);
+  padding: var(--optionPadding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  transition: filter 0.2s;
+  cursor: pointer;
+}
+
+.oneTimeHeader {
+  display: flex;
+  gap: 10px;
+}
+
+.OFS {
+  display: flex;
+  gap: 10px;
+  padding: 17px;
+  border-radius: var(--borderRadius);
+  justify-content: center;
+  align-items: center;
+}
+
+.OFS > p {
+  color: white;
+}
+
+@media (min-width: 961px) {
+  .dark:hover {
+    filter: brightness(125%);
+  }
+  .light:hover {
+    filter: brightness(90%);
+  }
+}

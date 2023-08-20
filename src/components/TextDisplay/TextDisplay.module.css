@@ -1,0 +1,23 @@
+.navOffset {
+  height: 66px;
+}
+
+.container {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: white;
+  padding-bottom: 60px;
+}
+
+.container > h1 {
+  text-align: center;
+}
+
+@media (min-width: 961px) {
+  .container {
+    padding: 20px 20%;
+    padding-bottom: 60px;
+  }
+}

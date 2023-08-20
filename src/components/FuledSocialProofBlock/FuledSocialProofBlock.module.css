@@ -1,0 +1,52 @@
+.container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  padding: 60px 40px;
+  overflow: hidden;
+  border-radius: var(--borderRadius);
+}
+
+.imageContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  aspect-ratio: 16/9;
+}
+
+.reviewSlider {
+  display: flex;
+  gap: 10px;
+  width: max-content;
+  animation: slideAnimation 100s linear infinite alternate;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1;
+}
+
+.mainHeading {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.heading > p {
+  width: 50%;
+}
+
+@keyframes slideAnimation {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-45%);
+  }
+}

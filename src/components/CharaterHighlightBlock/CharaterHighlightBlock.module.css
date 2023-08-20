@@ -1,0 +1,80 @@
+.proxyContainer {
+  position: relative;
+  border: 2px solid black;
+  border-radius: var(--borderRadius);
+}
+
+.container {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: var(--borderRadius);
+  overflow: hidden;
+  border: 1px solid var(--bg500);
+  background-color: black;
+}
+
+.copyContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: var(--boxPadding);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+.copyContainer > * {
+  color: white;
+}
+
+.copyContainer > p {
+  margin-bottom: 10px;
+}
+
+.fourFiveContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 4/5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.forgroundImage {
+  width: 100%;
+  height: fit-content;
+}
+
+.backgroundImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.OFS {
+  background-color: var(--bg600);
+  display: flex;
+  gap: 10px;
+  padding: 17px;
+  border-radius: var(--borderRadius);
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+}
+
+@media (min-width: 961px) {
+  .proxyContainer {
+    transition: all 0.2s;
+  }
+
+  .proxyContainer:hover {
+    filter: brightness(115%);
+  }
+}
+
+@media (min-width: 1025px) {
+}

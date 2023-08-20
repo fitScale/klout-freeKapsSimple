@@ -1,0 +1,48 @@
+.addToCart {
+  display: flex;
+  gap: 10px;
+  padding: 17px;
+  border-radius: var(--borderRadius);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  animation: pluse 1s linear infinite alternate;
+}
+
+.addToCart > p {
+  color: white;
+}
+
+.hover {
+  animation: slideAnimation 0.2s linear infinite alternate;
+}
+
+@keyframes slideAnimation {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(20%);
+  }
+}
+
+@keyframes pluse {
+  0% {
+    filter: brightness(100%);
+    text-shadow: 0px 0px 10px rgb(255, 255, 255, 0.1);
+  }
+  100% {
+    filter: brightness(115%);
+    text-shadow: 0px 0px 10px white;
+  }
+}
+
+@media (min-width: 961px) {
+  .addToCart {
+    transition: all 0.25s;
+  }
+
+  .addToCart:hover {
+    filter: brightness(125%);
+  }
+}

@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: var(--optionPadding);
+  border-radius: var(--borderRadius);
+  transition: filter 0.2s;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+@media (min-width: 961px) {
+  .dark:hover {
+    filter: brightness(125%);
+  }
+  .light:hover {
+    filter: brightness(90%);
+  }
+}
+
+@media (min-width: 1025px) {
+}

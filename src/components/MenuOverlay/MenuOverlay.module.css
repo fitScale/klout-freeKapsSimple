@@ -1,0 +1,110 @@
+.container {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  height: 100vh;
+  backdrop-filter: blur(10px) brightness(60%) opacity(0%);
+  transition: backdrop-filter 0.2s linear;
+}
+
+.fade {
+  backdrop-filter: blur(10px) brightness(60%) opacity(100%);
+}
+
+.menu {
+  background-color: black;
+  width: 65%;
+  height: 100%;
+  border-right: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px;
+  gap: 20px;
+  transform: translateX(-100%);
+  transition: transform 0.2s linear;
+}
+
+.move {
+  transform: translateX(0%);
+}
+
+.shopLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.shopLinks > a {
+  background-color: var(--bg800);
+  border: 1px solid white;
+  color: white;
+  display: grid;
+  place-items: center;
+  padding: 10px 0px;
+  border-radius: var(--borderRadius);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 125%;
+  font-family: var(--archivo);
+}
+
+.shopLinks > a:last-child {
+  background-color: var(--primaryColor);
+}
+
+.stackBuilder {
+  border: 2px solid white;
+
+  border-radius: var(--borderRadius);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.stackBuilder > p {
+  font-weight: 800;
+}
+
+.image {
+  width: calc(100% + 40px);
+  transform: translateX(-20px);
+}
+
+.stackBuilderATC {
+  background-color: white;
+  border: 1px solid rgb(101, 101, 101);
+  color: black;
+  display: grid;
+  place-items: center;
+  padding: 10px 0px;
+  border-radius: var(--borderRadius);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 125%;
+  font-family: var(--archivo);
+}
+
+.quickLinks {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quickLink {
+  background-color: var(--bg800);
+  border: 1px solid white;
+  color: white;
+  display: grid;
+  place-items: center;
+  padding: 10px 0px;
+  border-radius: var(--borderRadius);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 125%;
+  font-family: var(--archivo);
+}

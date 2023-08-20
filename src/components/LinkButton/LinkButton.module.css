@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  gap: 10px;
+  border: 1px solid black;
+  background-color: white;
+  padding: var(--optionPadding);
+  border-radius: var(--borderRadius);
+  box-shadow: var(--boxBorder);
+}
