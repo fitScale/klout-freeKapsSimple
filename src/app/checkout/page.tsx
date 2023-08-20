@@ -470,9 +470,7 @@ export default function Checkout() {
           <Svg icon="DangerIcon" color="var(--primaryColor)" size="14px" />
           <p>LIMITED TIME OFFER!</p>
         </div>
-        <div className={style.heroBackground}>
-          <ImageContainer imageContainerConfig={pumpInfoBanner} />
-        </div>
+        <div className={style.heroBackground}></div>
         <div className={style.heroCopy}>
           <div>
             <h1 style={{ fontSize: "15px" }}>

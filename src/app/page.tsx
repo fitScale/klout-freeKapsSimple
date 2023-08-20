@@ -81,7 +81,7 @@ export default function Home() {
   };
 
   const productInfoBanner: ImageContainerProps = {
-    src: "https://res.cloudinary.com/dod9nbjke/image/upload/v1691948992/Klout/Banner%20Images/Pre-banner-1_dbe7aj.jpg",
+    src: "https://res.cloudinary.com/dod9nbjke/image/upload/v1692574612/Klout/Banner%20Images/Pre-banner-1-2_kp5o3i.jpg",
     alt: "Klout Alian Logo",
     aspectRatio: "1080/4480",
   };
@@ -350,7 +350,7 @@ export default function Home() {
           <CtaButton config={CtaConfig} />
         </div>
         <div className={style.pumpInfo} ref={targetElementRef}>
-          <ImageContainer imageContainerConfig={pumpInfoBanner} />
+          <div></div>
           <div>
             <h4>OUT OF THIS WORLD PUMPS...</h4>
             <p>
