@@ -94,15 +94,15 @@ const KloutProduct = ({ config }: { config: KloutProductProps }) => {
         "KAIO Pump & Performance is a 3-in-1 powerhouse, blending optimal pumps, extended endurance, and premium hydration for peak training sessions.",
       values: [
         {
-          title: "max endurance",
+          title: "Intense Pumps",
           icon: "FireIcon",
         },
         {
-          title: "max hydration",
+          title: "Max Endurance",
           icon: "WaterIcon",
         },
         {
-          title: "Intense Pumps",
+          title: " No Caffeine",
           icon: "FlexIcon",
         },
       ],
