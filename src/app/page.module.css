@@ -152,6 +152,15 @@
   padding: 0px 24px;
 }
 
+@media (min-width: 410px) {
+  .heroBuffer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    aspect-ratio: 1080/1550;
+    padding: 0px 24px;
+  }
+}
 .backgroundBlackBuffer {
   height: 100px;
   width: 100%;
