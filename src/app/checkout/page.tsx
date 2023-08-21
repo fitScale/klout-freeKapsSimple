@@ -103,15 +103,15 @@ export default function Checkout() {
       values: [
         {
           title: "Intense Pumps",
-          icon: "FireIcon",
+          icon: "FlexIcon",
         },
         {
           title: "Max endurance",
-          icon: "WaterIcon",
+          icon: "FireIcon",
         },
         {
           title: "No Caffine",
-          icon: "FlexIcon",
+          icon: "verifiedIcon",
         },
       ],
       link: "/kaio-pump",
@@ -596,9 +596,7 @@ export default function Checkout() {
         )}
       </main>
       <main className={style.desktop}>
-        <div className={style.desktopBackgroundHero}>
-          <ImageContainer imageContainerConfig={reviewBanner} />
-        </div>
+        <div className={style.desktopBackgroundHero}></div>
 
         <div className={style.header}>
           <div className={style.desktopLogo}>

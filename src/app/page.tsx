@@ -472,9 +472,7 @@ export default function Home() {
           </div>
         </div>
         <div className={style.reviews}>
-          <div className={style.reviewsBackground}>
-            <ImageContainer imageContainerConfig={reviewBanner} />
-          </div>
+          <div className={style.reviewsBackground}></div>
           <div className={style.reviewHeading}>
             <h1>
               {"thousands have spoken, klout pwr is unmatched".toUpperCase()}
