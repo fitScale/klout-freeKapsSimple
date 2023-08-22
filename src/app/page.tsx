@@ -81,7 +81,7 @@ export default function Home() {
   };
 
   const productInfoBanner: ImageContainerProps = {
-    src: "https://res.cloudinary.com/dod9nbjke/image/upload/v1692725624/Klout/Banner%20Images/Pre-banner-13_kamxxs.jpg",
+    src: "https://res.cloudinary.com/dod9nbjke/image/upload/v1692725714/Klout/Banner%20Images/adsffff_wev4oo.jpg",
     alt: "Klout Alian Logo",
     aspectRatio: "1080/4480",
   };
@@ -274,7 +274,7 @@ export default function Home() {
   };
 
   const desktopBannerProducts: ImageContainerProps = {
-    src: "https://res.cloudinary.com/dod9nbjke/image/upload/v1692075195/Klout/Banner%20Images/DesktopBanner2-v4_ovpzk0.jpg",
+    src: "https://res.cloudinary.com/dod9nbjke/image/upload/v1692725989/Klout/Banner%20Images/Dfasdfadgfadsfadsf_hb6qbl.jpg",
     alt: "Klout Alian Logo",
     aspectRatio: "1920/2413",
   };

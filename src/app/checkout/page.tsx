@@ -73,14 +73,13 @@ export default function Checkout() {
     }
   }, [variantId]);
 
-  const checkout = () => {
-    const cartData = CartClientServices.addCartItem(addCart, createCart, {
+  const checkout = async () => {
+    const cartData = await CartClientServices.addCartItem(addCart, createCart, {
       cartId: cart,
       merchandiseId: variantId!,
       quantity: 1,
-    }).then((e) => {
-      router.push(e.cart.checkoutUrl!);
     });
+    router.push(cartData.cart.checkoutUrl!);
   };
 
   const logoConfig: ImageContainerProps = {
