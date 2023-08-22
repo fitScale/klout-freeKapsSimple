@@ -83,7 +83,7 @@ export default function Home() {
   const productInfoBanner: ImageContainerProps = {
     src: "https://res.cloudinary.com/dod9nbjke/image/upload/v1692725714/Klout/Banner%20Images/adsffff_wev4oo.jpg",
     alt: "Klout Alian Logo",
-    aspectRatio: "1080/4480",
+    aspectRatio: "1080/4791",
   };
 
   const backgroundImage: ImageContainerProps = {
