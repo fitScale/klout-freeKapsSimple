@@ -79,6 +79,8 @@ export default function Checkout() {
       merchandiseId: variantId!,
       quantity: 1,
     });
+    console.log(cartData);
+    console.log(cartData.cart.checkoutUrl!);
     router.push(cartData.cart.checkoutUrl!);
   };
 
