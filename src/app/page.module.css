@@ -224,7 +224,7 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-bottom: 450px;
+  margin-bottom: 30px;
 }
 
 .productInfo > div:nth-child(1) {

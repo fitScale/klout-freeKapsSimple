@@ -81,7 +81,7 @@ export default function Home() {
   };
 
   const productInfoBanner: ImageContainerProps = {
-    src: "https://res.cloudinary.com/dod9nbjke/image/upload/v1692725714/Klout/Banner%20Images/adsffff_wev4oo.jpg",
+    src: "https://res.cloudinary.com/dod9nbjke/image/upload/v1692727873/Klout/Banner%20Images/fadsadsfasdf_n1bldx.jpg",
     alt: "Klout Alian Logo",
     aspectRatio: "1080/4791",
   };
