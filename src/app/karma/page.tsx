@@ -13,7 +13,7 @@ const Karma = () => {
     desktopBanner:
       "https://res.cloudinary.com/dod9nbjke/image/upload/v1692125607/Klout/Banner%20Images/FinalKarma_vb9cc2.jpg",
     heroBannerSrc:
-      "https://res.cloudinary.com/dod9nbjke/image/upload/v1691974562/Klout/Misc%20Assets/KarmaBanner_hl5xik.jpg",
+      "https://res.cloudinary.com/dod9nbjke/image/upload/v1692721934/Klout/Banner%20Images/Klout4_tv6ift.jpg",
     color: "#e300a3",
     info: [
       {

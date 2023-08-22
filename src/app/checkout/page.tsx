@@ -13,14 +13,37 @@ import { ValuesGridProps } from "@/components/ValuesGrid/ValuesGrid.component";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Footer from "@/components/Footer/Footer.component";
+import { CartClientServices } from "@/shopify/services/client/cart.services.client";
+import { useMutation } from "@apollo/client";
+import {
+  addCartItemMutation,
+  createCartMutation,
+} from "@/shopify/graphql/mutations/cart.mutations";
+import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
 
 export default function Checkout() {
+  const router = useRouter();
+
   const [selected, setSelected] = useState<undefined | number>(undefined);
   const [variantId, setId] = useState<string | undefined>();
+  const [cart, setCart] = useState<undefined | string>(undefined);
 
   const flavorRef = useRef({} as HTMLDivElement);
 
   const flavorRef2 = useRef({} as HTMLDivElement);
+
+  const [createCart] = useMutation(createCartMutation);
+  const [addCart] = useMutation(addCartItemMutation);
+
+  useEffect(() => {
+    CartClientServices.createCart(createCart, {
+      merchandiseId: "gid://shopify/ProductVariant/43838165221634",
+      quantity: 1,
+    }).then((e) => {
+      setCart(e.cart.id);
+    });
+  }, []);
 
   useEffect(() => {
     if (selected !== undefined && flavorRef.current) {
@@ -49,6 +72,16 @@ export default function Checkout() {
       });
     }
   }, [variantId]);
+
+  const checkout = () => {
+    const cartData = CartClientServices.addCartItem(addCart, createCart, {
+      cartId: cart,
+      merchandiseId: variantId!,
+      quantity: 1,
+    }).then((e) => {
+      router.push(e.cart.checkoutUrl!);
+    });
+  };
 
   const logoConfig: ImageContainerProps = {
     src: "https://res.cloudinary.com/dod9nbjke/image/upload/v1691872483/Klout/Logos/Alian-Green-min_d4vyct.png",
@@ -167,48 +200,6 @@ export default function Checkout() {
     },
   ];
 
-  const valuesGridConfig: ValuesGridProps = {
-    values: [
-      {
-        heading: "PROUDLY MADE IN THE USA",
-        subtext: "",
-        icon: "USAIcon",
-        information:
-          "Crafted with pride in the USA, our products embody the highest standards of quality and excellence.",
-        darkTheme: true,
-        smallHeading: true,
-      },
-      {
-        heading: "HIGH QUALITY INGREDIENTS",
-        subtext: "",
-        icon: "MoleculeIcon",
-        information:
-          "Highly studied, premium ingredients. You will not find ineffective doses of any ingredients here.",
-        darkTheme: true,
-        smallHeading: true,
-      },
-      {
-        heading: "FORMULATED BY EXPERTS",
-        subtext: "",
-        icon: "ElectricIcon",
-        information:
-          "Our products are formulated by experts who utilize the latest science in order to establish our quality researched products.",
-        darkTheme: true,
-        smallHeading: true,
-      },
-      {
-        heading: "TRANSPARENT LABELS",
-        subtext: "",
-        icon: "NoContractsIcon",
-        information:
-          "Our products and labels offer complete transparency, allowing no use of proprietary blends. What you see is what you get, no hidden secrets.",
-        darkTheme: true,
-        smallHeading: true,
-      },
-    ],
-    darkTheme: true,
-  };
-
   const generateProductCard = (cards: KloutCardProps[]) => {
     const gen = [];
     for (let i = 0; i < cards.length; i++) {
@@ -273,7 +264,7 @@ export default function Checkout() {
           "A thrilling concoction of bold black cherry meets refreshing watermelon, delivering an electrifying punch that's sure to awaken the senses.",
         color: "lime",
         bgColor: "darkGreen",
-        variantId: "1",
+        variantId: "gid://shopify/ProductVariant/43499165778178",
         productName: "KAIO FINAL DESTINATION",
         price: "57",
         flavorImage:
@@ -285,7 +276,7 @@ export default function Checkout() {
           "A tantalizing blend capturing the essence of the universe, with hints of sweet and sour that transports your taste buds to new galaxies.",
         color: "magenta",
         bgColor: "Purple",
-        variantId: "2",
+        variantId: "gid://shopify/ProductVariant/43499165810946",
         productName: "KAIO FINAL DESTINATION",
         price: "57",
         flavorImage:
@@ -297,7 +288,7 @@ export default function Checkout() {
           "A vibrant twist of orange and smooth cream. Power up, as each sip rockets you into a workout fueled by sunlit flavors.",
         color: "#f0b800",
         bgColor: "#8a6e12",
-        variantId: "3",
+        variantId: "gid://shopify/ProductVariant/43826706710786",
         productName: "KAIO FINAL DESTINATION",
         price: "57",
         flavorImage:
@@ -312,7 +303,7 @@ export default function Checkout() {
           "A fusion of fluffy sweetness, cotton candy delivers a carnival of flavor, igniting a vibrant rush that'll dance across your taste buds.",
         color: "#00d8ff",
         bgColor: "#025d6e",
-        variantId: "4",
+        variantId: "gid://shopify/ProductVariant/43753091498242",
         productName: "KAIO PUMP & PERFORMANCE",
         price: "57",
         flavorImage:
@@ -324,7 +315,7 @@ export default function Checkout() {
           "A vibrant twist of orange and smooth cream. Power up, as each sip rockets you into a workout fueled by sunlit flavors.",
         color: "#f0b800",
         bgColor: "#8a6e12",
-        variantId: "5",
+        variantId: "gid://shopify/ProductVariant/43753091531010",
         productName: "KAIO PUMP & PERFORMANCE",
         price: "57",
         flavorImage:
@@ -341,7 +332,7 @@ export default function Checkout() {
           "A soup explosion where tart meets tropical, Sour Paradise delivers powerful burst of flavor, priming you for the workout ahead.",
         color: "#ffbc00",
         bgColor: "#7e8200",
-        variantId: "7",
+        variantId: "gid://shopify/ProductVariant/42584647893250",
         productName: "MAMBA HIGH-STIM",
         price: "47",
         flavorImage:
@@ -353,7 +344,7 @@ export default function Checkout() {
           "A cool burst of fresh cherry, Arctic Cherry delivers a smooth chill with a hint of tartness, giving your taste buds a refreshing and simple delight.",
         color: "#fc7c8b",
         bgColor: "#751d28",
-        variantId: "8",
+        variantId: "gid://shopify/ProductVariant/43198190452994",
         productName: "MAMBA HIGH-STIM",
         price: "47",
         flavorImage:
@@ -365,7 +356,7 @@ export default function Checkout() {
           "An out-of-this-world blend of sweetness and cosmic tanginess, Space Kandy propels you through a galaxy of flavor, ensuring every sip is an interstellar adventure across your taste buds.",
         color: "#00ff3f",
         bgColor: "#005916",
-        variantId: "6",
+        variantId: "gid://shopify/ProductVariant/43342798618882",
         productName: "MAMBA HIGH-STIM",
         price: "47",
         flavorImage:
@@ -377,7 +368,7 @@ export default function Checkout() {
           "A tantalizing mix of sweet and sinister, Poison Apple offers a bite of crisp apple with an unexpected twist, teasing your taste buds with a hint of mystery.",
         color: "#ff3349",
         bgColor: "#540009",
-        variantId: "9",
+        variantId: "gid://shopify/ProductVariant/42584647926018",
         productName: "MAMBA HIGH-STIM",
         price: "47",
         flavorImage:
@@ -390,10 +381,10 @@ export default function Checkout() {
       {
         name: "Juicy Burst:",
         description:
-          "A thrilling concoction of bold black cherry meets refreshing watermelon, delivering an electrifying punch that's sure to awaken the senses.",
+          "Dive into a pink paradise where the flavor bursts with juicy goodness, captivating every taste bud.",
         color: "#e6009d",
         bgColor: "#750050",
-        variantId: "10",
+        variantId: "gid://shopify/ProductVariant/42567092371714",
         productName: "KARMA LOW-STIM",
         price: "47",
         flavorImage:
@@ -405,7 +396,7 @@ export default function Checkout() {
           "A soup explosion where tart meets tropical, Sour Paradise delivers powerful burst of flavor, priming you for the workout ahead.",
         color: "#ffbc00",
         bgColor: "#7e8200",
-        variantId: "11",
+        variantId: "gid://shopify/ProductVariant/41999407644930",
         productName: "KARMA LOW-STIM",
         price: "47",
         flavorImage:
@@ -417,7 +408,7 @@ export default function Checkout() {
           "A cool burst of fresh cherry, Arctic Cherry delivers a smooth chill with a hint of tartness, giving your taste buds a refreshing and simple delight.",
         color: "#fc7c8b",
         bgColor: "#751d28",
-        variantId: "12",
+        variantId: "gid://shopify/ProductVariant/43198182195458",
         productName: "KARMA LOW-STIM",
         price: "47",
         flavorImage:
@@ -429,7 +420,7 @@ export default function Checkout() {
           "An out-of-this-world blend of sweetness and cosmic tanginess, Space Kandy propels you through a galaxy of flavor, ensuring every sip is an interstellar adventure across your taste buds.",
         color: "#00ff3f",
         bgColor: "#005916",
-        variantId: "13",
+        variantId: "gid://shopify/ProductVariant/43342801666306",
         productName: "KARMA LOW-STIM",
         price: "47",
         flavorImage:
@@ -588,7 +579,12 @@ export default function Checkout() {
                   </div>
                 </div>
               </div>
-              <div className={style.checkout}>
+              <div
+                className={style.checkout}
+                onClick={() => {
+                  checkout();
+                }}
+              >
                 <p>CHECKOUT NOW!</p>
               </div>
             </div>

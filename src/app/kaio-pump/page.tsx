@@ -13,7 +13,7 @@ const KaioPump = () => {
     desktopBanner:
       "https://res.cloudinary.com/dod9nbjke/image/upload/v1692125136/Klout/Banner%20Images/FinalKaio_dm4hzu.jpg",
     heroBannerSrc:
-      "https://res.cloudinary.com/dod9nbjke/image/upload/v1691966761/Klout/Banner%20Images/KaioBanner_czngvq.jpg",
+      "https://res.cloudinary.com/dod9nbjke/image/upload/v1692721934/Klout/Banner%20Images/KloutBanner3_s6xmd6.jpg",
     color: "#f58f00",
     info: [
       {
