@@ -739,7 +739,12 @@ export default function Checkout() {
                             </div>
                           </div>
                         </div>
-                        <div className={style.checkout}>
+                        <div
+                          className={style.checkout}
+                          onClick={() => {
+                            checkout();
+                          }}
+                        >
                           <p>CHECKOUT NOW!</p>
                         </div>
                       </div>
