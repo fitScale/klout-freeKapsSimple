@@ -9,7 +9,7 @@ const KaioPump = () => {
     servings: "25",
     reviews: "39",
     desktopBanner:
-      "https://res.cloudinary.com/dod9nbjke/image/upload/v1692121882/Klout/Banner%20Images/KAIOABANNERDesktop2_wtjkla.jpg",
+      "https://res.cloudinary.com/dod9nbjke/image/upload/v1692724856/Klout/Banner%20Images/Finaldeskination_h8xakg.jpg",
     description:
       "KAIO Final Destination - where energy isn't just a small boost, it's a PR shattering force. Eight elite, trademarked ingredients converge to unleash relentless energy, out of this world pumps and a focus that completely eliminates distractions. With KAIO, not only will you touch your limits, you'll obliterate them.",
     heroBannerSrc:

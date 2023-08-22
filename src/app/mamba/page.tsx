@@ -11,7 +11,7 @@ const KaioPump = () => {
     description:
       " Packed with an elite lineup of stimulants and nootropics, Mamba promises a rush that's unparalleled and unbeatable. When you need a force to push past boundaries, to crush every PR, and shatter your goals, reach for Mamba. Prepare to dominate, every single lift.",
     desktopBanner:
-      "https://res.cloudinary.com/dod9nbjke/image/upload/v1692125405/Klout/Banner%20Images/FinalKioKen_lv1wuh.jpg",
+      "https://res.cloudinary.com/dod9nbjke/image/upload/v1692724856/Klout/Banner%20Images/Finalone_s5c7m9.jpg",
     heroBannerSrc:
       "https://res.cloudinary.com/dod9nbjke/image/upload/v1692721934/Klout/Banner%20Images/Klout2_xdkhlw.jpg",
     color: "#f00038",

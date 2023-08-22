@@ -11,7 +11,7 @@ const KaioPump = () => {
     description:
       "KAIO Pump & Performance is not just another supplement; it's an industry-first blend where pump, endurance, and hydration converge in a one-of-a-kind formula. Experience the synergy of meticulously selected ingredients, tailored to keep you hydrated and firing on all cylinders through even the most intense sessions.",
     desktopBanner:
-      "https://res.cloudinary.com/dod9nbjke/image/upload/v1692125136/Klout/Banner%20Images/FinalKaio_dm4hzu.jpg",
+      "https://res.cloudinary.com/dod9nbjke/image/upload/v1692724856/Klout/Banner%20Images/Finalkaiof_qdss2h.jpg",
     heroBannerSrc:
       "https://res.cloudinary.com/dod9nbjke/image/upload/v1692721934/Klout/Banner%20Images/KloutBanner3_s6xmd6.jpg",
     color: "#f58f00",

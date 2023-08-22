@@ -11,7 +11,7 @@ const Karma = () => {
     description:
       "Crafted with a potent nootropic blend, six elite trademarked ingredients, and just the right touch of energy, Karma is the game-changer for those looking to stay dialed in their entire session, with no jitters and certainly no crash. Low on stimulants, high on clarity, and insanely unique and tasty flavors - that's Karma.",
     desktopBanner:
-      "https://res.cloudinary.com/dod9nbjke/image/upload/v1692125607/Klout/Banner%20Images/FinalKarma_vb9cc2.jpg",
+      "https://res.cloudinary.com/dod9nbjke/image/upload/v1692724856/Klout/Banner%20Images/Pinkjuice_tsjqzc.jpg",
     heroBannerSrc:
       "https://res.cloudinary.com/dod9nbjke/image/upload/v1692721934/Klout/Banner%20Images/Klout4_tv6ift.jpg",
     color: "#e300a3",
