@@ -37,6 +37,15 @@ export default function Checkout() {
   const [addCart] = useMutation(addCartItemMutation);
 
   useEffect(() => {
+    CartClientServices.createCart(createCart, {
+      merchandiseId: "gid://shopify/ProductVariant/43838165221634",
+      quantity: 1,
+    }).then((e) => {
+      setCart(e.cart.id);
+    });
+  }, []);
+
+  useEffect(() => {
     if (selected !== undefined && flavorRef.current) {
       flavorRef.current.scrollIntoView({
         behavior: "smooth",
@@ -70,8 +79,7 @@ export default function Checkout() {
       merchandiseId: variantId!,
       quantity: 1,
     });
-    console.log(cartData);
-    console.log(cartData.cart.checkoutUrl!);
+
     router.push(cartData.cart.checkoutUrl!);
   };
 
