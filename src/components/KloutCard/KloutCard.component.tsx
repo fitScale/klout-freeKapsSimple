@@ -20,6 +20,7 @@ export interface KloutCardProps {
   selected?: boolean;
   descripton: string;
   checkout?: boolean;
+  out?: boolean;
 }
 
 const KloutCard = ({ config }: { config: KloutCardProps }) => {
@@ -74,26 +75,33 @@ const KloutCard = ({ config }: { config: KloutCardProps }) => {
         />
       </div>
       <div className={style.values}>{generateValues(config.values)}</div>
-      {config.checkout && (
+      {config.checkout && !config.out && (
         <div className={style.selectP}>
           <p>SELECT PRODUCT</p>
         </div>
       )}
-      <Link href={config.link}>
-        <div
-          className={style.cta}
-          style={{
-            backgroundColor: config.checkout
-              ? "rgb(38, 38, 38)"
-              : config.color
-              ? config.color
-              : "var(--primaryColor)",
-            marginTop: config.checkout ? "0px" : "10px",
-          }}
-        >
-          <p>MORE INFO</p>
+      {!config.out && (
+        <Link href={config.link}>
+          <div
+            className={style.cta}
+            style={{
+              backgroundColor: config.checkout
+                ? "rgb(38, 38, 38)"
+                : config.color
+                ? config.color
+                : "var(--primaryColor)",
+              marginTop: config.checkout ? "0px" : "10px",
+            }}
+          >
+            <p>MORE INFO</p>
+          </div>
+        </Link>
+      )}
+      {config.out && (
+        <div className={style.overlay}>
+          <p>OUT OF STOCK</p>
         </div>
-      </Link>
+      )}
     </div>
   );
 };

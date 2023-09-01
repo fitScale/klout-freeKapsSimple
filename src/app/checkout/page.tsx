@@ -206,11 +206,17 @@ export default function Checkout() {
       gen.push(
         <div
           onClick={() => {
-            setSelected(i);
+            if (i < 1) {
+              setSelected(i);
+            }
           }}
         >
           <KloutCard
-            config={{ ...cards[i], selected: selected === i ? true : false }}
+            config={{
+              ...cards[i],
+              selected: selected === i ? true : false,
+              out: i > 1 ? true : false,
+            }}
           />
         </div>
       );

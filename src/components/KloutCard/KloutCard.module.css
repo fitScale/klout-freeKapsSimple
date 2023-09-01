@@ -11,6 +11,21 @@
   transition: all 0.2s;
 }
 
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(18, 18, 18, 0.831);
+  display: grid;
+  place-items: center;
+}
+
+.overlay > p {
+  font-weight: 800;
+}
+
 .container > div:first-child {
   width: 100%;
 }
