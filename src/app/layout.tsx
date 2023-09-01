@@ -37,11 +37,14 @@ export default function RootLayout({
       className={`${archivo.variable} ${montserrat.variable} ${inter.variable} ${helvetica.variable}`}
     >
       <ApolloClientProvider>
-        <Script
-          id="fb-pixel"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
+        <body>
+          {children}
+          <Analytics />
+          <Script
+            id="fb-pixel"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -53,11 +56,8 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '1016469529505447');
 fbq('track', 'PageView');
 `,
-          }}
-        />
-        <body>
-          {children}
-          <Analytics />
+            }}
+          />
         </body>
       </ApolloClientProvider>
     </html>
