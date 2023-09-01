@@ -206,7 +206,7 @@ export default function Checkout() {
       gen.push(
         <div
           onClick={() => {
-            if (i < 1) {
+            if (i <= 1) {
               setSelected(i);
             }
           }}
