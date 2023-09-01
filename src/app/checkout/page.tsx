@@ -1,5 +1,7 @@
 "use client";
 
+import va from "@vercel/analytics";
+
 import ImageContainer, {
   ImageContainerProps,
 } from "@/components/ImageContainer/ImageContainer.componenet";
@@ -79,7 +81,7 @@ export default function Checkout() {
       merchandiseId: variantId!,
       quantity: 1,
     });
-
+    va.track("Checkout");
     router.push(cartData.cart.checkoutUrl!);
   };
 
