@@ -59,6 +59,7 @@ const KloutProduct = ({ config }: { config: KloutProductProps }) => {
   const ctaConfig: CtaButtonConfig = {
     text: "claim my free pump kaps now!",
     link: "/checkout",
+    disable: true,
   };
 
   const productCards: KloutCardProps[] = [
