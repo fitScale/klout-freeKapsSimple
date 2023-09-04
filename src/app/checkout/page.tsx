@@ -294,7 +294,7 @@ export default function Checkout() {
                 backdropFilter: "brightness(30%)",
               }}
             >
-              <p style={{ color: "white", fontWeight: "900" }}>OUT OF STOCK</p>
+              <p style={{ color: "red", fontWeight: "900" }}>OUT OF STOCK</p>
             </div>
           )}
         </div>
