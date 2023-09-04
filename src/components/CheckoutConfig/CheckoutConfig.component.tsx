@@ -13,7 +13,7 @@ import Svg from "../../../public/svgs/svgComponent/svg.component";
 import { CSSProperties, useContext, useState } from "react";
 import BoxThemes from "@/helpers/functions/BoxThemes";
 import { formatter } from "@/helpers/functions/formatMoney";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import {
   addCartItemMutation,
   createCartMutation,
@@ -26,6 +26,7 @@ import AddToCartButton, {
 } from "../AddToCartButton/AddToCartButton.component";
 import Link from "next/link";
 import { AppContext } from "@/contexts/AppContext";
+import { getCollectionSingleQuery } from "@/shopify/graphql/queries/product.queries";
 
 export interface CheckoutConfigProps {
   productData: Awaited<
@@ -95,6 +96,8 @@ const CheckoutConfig = ({
     darkTheme: dark,
     themeColor,
   };
+
+  const { data } = useQuery(getCollectionSingleQuery);
 
   const generateOptions = (variants: VariantData[]) => {
     const gen = [];

@@ -16,13 +16,15 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Footer from "@/components/Footer/Footer.component";
 import { CartClientServices } from "@/shopify/services/client/cart.services.client";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import {
   addCartItemMutation,
   createCartMutation,
 } from "@/shopify/graphql/mutations/cart.mutations";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
+import { getCollectionSingleQuery } from "@/shopify/graphql/queries/product.queries";
+import { ProductClientServices } from "@/shopify/services/client/product.services.client";
 
 export default function Checkout() {
   const router = useRouter();
@@ -37,6 +39,21 @@ export default function Checkout() {
 
   const [createCart] = useMutation(createCartMutation);
   const [addCart] = useMutation(addCartItemMutation);
+
+  const { data } = useQuery(getCollectionSingleQuery, {
+    variables: {
+      collectionId: "gid://shopify/Collection/385934819586",
+      first: 250,
+    },
+  });
+
+  if (data) {
+    console.log(ProductClientServices.parseCollectionSingle(data));
+  }
+
+  const parsedData = data
+    ? ProductClientServices.parseCollectionSingle(data)
+    : "";
 
   useEffect(() => {
     CartClientServices.createCart(createCart, {
@@ -227,6 +244,7 @@ export default function Checkout() {
   };
 
   interface flavor {
+    stock?: string;
     name: string;
     description: string;
     color: string;
@@ -240,6 +258,8 @@ export default function Checkout() {
   const generateFlavors = (flavors: flavor[]) => {
     const gen = [];
     for (let i = 0; i < flavors.length; i++) {
+      console.log(flavors[i].stock);
+
       gen.push(
         <div
           className={style.falvorBox}
@@ -251,11 +271,29 @@ export default function Checkout() {
                 : "brightness(50%)",
           }}
           onClick={() => {
-            setId(flavors[i].variantId);
+            if (Number(flavors[i].stock) > 1) {
+              setId(flavors[i].variantId);
+            }
           }}
         >
           <p style={{ color: flavors[i].color }}>{flavors[i].name}</p>
           <p>{flavors[i].description}</p>
+          {Number(flavors[i].stock) < 1 && (
+            <div
+              style={{
+                position: "absolute",
+                top: "0",
+                left: "0",
+                width: "100%",
+                height: "100%",
+                display: "grid",
+                placeItems: "center",
+                backdropFilter: "brightness(30%)",
+              }}
+            >
+              <p style={{ color: "white", fontWeight: "900" }}>OUT OF STOCK</p>
+            </div>
+          )}
         </div>
       );
     }
@@ -264,9 +302,18 @@ export default function Checkout() {
 
   let flavors: flavor[] | undefined;
 
+  function filterById(array: any, targetId: string) {
+    return array.filter((item: any) => item.id === targetId);
+  }
+
   if (selected === 0) {
     flavors = [
       {
+        stock: filterById(
+          // @ts-ignore-error
+          parsedData.collection.products.products[0].variants,
+          "gid://shopify/ProductVariant/43499165778178"
+        )[0].quantity,
         name: "Psycho Serum:",
         description:
           "A thrilling concoction of bold black cherry meets refreshing watermelon, delivering an electrifying punch that's sure to awaken the senses.",
@@ -279,6 +326,11 @@ export default function Checkout() {
           "https://res.cloudinary.com/dod9nbjke/image/upload/v1691949825/Klout/Product%20Images/KAIO-PsychoSerum-Front-Plain-min_efdscx.png",
       },
       {
+        stock: filterById(
+          // @ts-ignore-error
+          parsedData.collection.products.products[0].variants,
+          "gid://shopify/ProductVariant/43499165810946"
+        )[0].quantity,
         name: "Cosmic Dust:",
         description:
           "A tantalizing blend capturing the essence of the universe, with hints of sweet and sour that transports your taste buds to new galaxies.",
@@ -291,6 +343,11 @@ export default function Checkout() {
           "https://res.cloudinary.com/dod9nbjke/image/upload/v1691949825/Klout/Product%20Images/KAIO-PsychoSerum-Front-Plain-min_efdscx.png",
       },
       {
+        stock: filterById(
+          // @ts-ignore-error
+          parsedData.collection.products.products[0].variants,
+          "gid://shopify/ProductVariant/43826706710786"
+        )[0].quantity,
         name: "Orange Creamsicle:",
         description:
           "A vibrant twist of orange and smooth cream. Power up, as each sip rockets you into a workout fueled by sunlit flavors.",
@@ -306,6 +363,11 @@ export default function Checkout() {
   } else if (selected === 1) {
     flavors = [
       {
+        stock: filterById(
+          // @ts-ignore-error
+          parsedData.collection.products.products[1].variants,
+          "gid://shopify/ProductVariant/43753091498242"
+        )[0].quantity,
         name: "Cotton Candy",
         description:
           "A fusion of fluffy sweetness, cotton candy delivers a carnival of flavor, igniting a vibrant rush that'll dance across your taste buds.",
@@ -318,6 +380,11 @@ export default function Checkout() {
           "https://res.cloudinary.com/dod9nbjke/image/upload/v1691949825/Klout/Product%20Images/Kaio_Pump-min_hittuz.png",
       },
       {
+        stock: filterById(
+          // @ts-ignore-error
+          parsedData.collection.products.products[1].variants,
+          "gid://shopify/ProductVariant/43753091531010"
+        )[0].quantity,
         name: "Orange Creamsicle:",
         description:
           "A vibrant twist of orange and smooth cream. Power up, as each sip rockets you into a workout fueled by sunlit flavors.",
