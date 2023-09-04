@@ -261,26 +261,28 @@ export default function Checkout() {
       console.log(flavors[i].stock);
 
       gen.push(
-        <div
-          className={style.falvorBox}
-          style={{
-            position: "relative",
-            backgroundColor: flavors[i].bgColor,
-            filter:
-              Number(flavors[i].stock) < 1
-                ? "brightness(20%)"
-                : variantId === flavors[i].variantId
-                ? "brightness(100%)"
-                : "brightness(50%)",
-          }}
-          onClick={() => {
-            if (Number(flavors[i].stock) > 1) {
-              setId(flavors[i].variantId);
-            }
-          }}
-        >
-          <p style={{ color: flavors[i].color }}>{flavors[i].name}</p>
-          <p>{flavors[i].description}</p>
+        <div style={{ position: "relative" }}>
+          <div
+            className={style.falvorBox}
+            style={{
+              position: "relative",
+              backgroundColor: flavors[i].bgColor,
+              filter:
+                Number(flavors[i].stock) < 1
+                  ? "brightness(20%)"
+                  : variantId === flavors[i].variantId
+                  ? "brightness(100%)"
+                  : "brightness(50%)",
+            }}
+            onClick={() => {
+              if (Number(flavors[i].stock) > 1) {
+                setId(flavors[i].variantId);
+              }
+            }}
+          >
+            <p style={{ color: flavors[i].color }}>{flavors[i].name}</p>
+            <p>{flavors[i].description}</p>
+          </div>
           {Number(flavors[i].stock) < 1 && (
             <div
               style={{
