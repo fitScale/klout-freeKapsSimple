@@ -267,7 +267,9 @@ export default function Checkout() {
             position: "relative",
             backgroundColor: flavors[i].bgColor,
             filter:
-              variantId === flavors[i].variantId
+              Number(flavors[i].stock) < 1
+                ? "brightness(20%)"
+                : variantId === flavors[i].variantId
                 ? "brightness(100%)"
                 : "brightness(50%)",
           }}
