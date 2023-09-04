@@ -264,6 +264,7 @@ export default function Checkout() {
         <div
           className={style.falvorBox}
           style={{
+            position: "relative",
             backgroundColor: flavors[i].bgColor,
             filter:
               variantId === flavors[i].variantId
@@ -402,6 +403,11 @@ export default function Checkout() {
     // https://res.cloudinary.com/dod9nbjke/image/upload/v1691949826/Klout/Product%20Images/Mamba-SourParadise-Front-Plain-min_jqoaet.png
     flavors = [
       {
+        stock: filterById(
+          // @ts-ignore-error
+          parsedData.collection.products.products[2].variants,
+          "gid://shopify/ProductVariant/42584647893250"
+        )[0].quantity,
         name: "Sour Paradise:",
         description:
           "A soup explosion where tart meets tropical, Sour Paradise delivers powerful burst of flavor, priming you for the workout ahead.",
@@ -414,6 +420,11 @@ export default function Checkout() {
           "https://res.cloudinary.com/dod9nbjke/image/upload/v1691949826/Klout/Product%20Images/Mamba-SourParadise-Front-Plain-min_jqoaet.png",
       },
       {
+        stock: filterById(
+          // @ts-ignore-error
+          parsedData.collection.products.products[2].variants,
+          "gid://shopify/ProductVariant/43198190452994"
+        )[0].quantity,
         name: "Arctic Cherry:",
         description:
           "A cool burst of fresh cherry, Arctic Cherry delivers a smooth chill with a hint of tartness, giving your taste buds a refreshing and simple delight.",
@@ -426,6 +437,11 @@ export default function Checkout() {
           "https://res.cloudinary.com/dod9nbjke/image/upload/v1691949826/Klout/Product%20Images/Mamba-SourParadise-Front-Plain-min_jqoaet.png",
       },
       {
+        stock: filterById(
+          // @ts-ignore-error
+          parsedData.collection.products.products[2].variants,
+          "gid://shopify/ProductVariant/43342798618882"
+        )[0].quantity,
         name: "Space Kandy:",
         description:
           "An out-of-this-world blend of sweetness and cosmic tanginess, Space Kandy propels you through a galaxy of flavor, ensuring every sip is an interstellar adventure across your taste buds.",
@@ -438,6 +454,11 @@ export default function Checkout() {
           "https://res.cloudinary.com/dod9nbjke/image/upload/v1691949826/Klout/Product%20Images/Mamba-SourParadise-Front-Plain-min_jqoaet.png",
       },
       {
+        stock: filterById(
+          // @ts-ignore-error
+          parsedData.collection.products.products[2].variants,
+          "gid://shopify/ProductVariant/42584647926018"
+        )[0].quantity,
         name: "Poison Apple:",
         description:
           "A tantalizing mix of sweet and sinister, Poison Apple offers a bite of crisp apple with an unexpected twist, teasing your taste buds with a hint of mystery.",
@@ -454,6 +475,11 @@ export default function Checkout() {
     // https://res.cloudinary.com/dod9nbjke/image/upload/v1691949825/Klout/Product%20Images/Karma-ArcticCherry-Front-Plain-min_ogshhd.png
     flavors = [
       {
+        stock: filterById(
+          // @ts-ignore-error
+          parsedData.collection.products.products[3].variants,
+          "gid://shopify/ProductVariant/42567092371714"
+        )[0].quantity,
         name: "Juicy Burst:",
         description:
           "Dive into a pink paradise where the flavor bursts with juicy goodness, captivating every taste bud.",
@@ -466,6 +492,11 @@ export default function Checkout() {
           "https://res.cloudinary.com/dod9nbjke/image/upload/v1691949825/Klout/Product%20Images/Karma-ArcticCherry-Front-Plain-min_ogshhd.png",
       },
       {
+        stock: filterById(
+          // @ts-ignore-error
+          parsedData.collection.products.products[3].variants,
+          "gid://shopify/ProductVariant/41999407644930"
+        )[0].quantity,
         name: "Sour Paradise:",
         description:
           "A soup explosion where tart meets tropical, Sour Paradise delivers powerful burst of flavor, priming you for the workout ahead.",
@@ -478,6 +509,11 @@ export default function Checkout() {
           "https://res.cloudinary.com/dod9nbjke/image/upload/v1691949825/Klout/Product%20Images/Karma-ArcticCherry-Front-Plain-min_ogshhd.png",
       },
       {
+        stock: filterById(
+          // @ts-ignore-error
+          parsedData.collection.products.products[3].variants,
+          "gid://shopify/ProductVariant/43198182195458"
+        )[0].quantity,
         name: "Arctic Cherry:",
         description:
           "A cool burst of fresh cherry, Arctic Cherry delivers a smooth chill with a hint of tartness, giving your taste buds a refreshing and simple delight.",
@@ -490,6 +526,11 @@ export default function Checkout() {
           "https://res.cloudinary.com/dod9nbjke/image/upload/v1691949825/Klout/Product%20Images/Karma-ArcticCherry-Front-Plain-min_ogshhd.png",
       },
       {
+        stock: filterById(
+          // @ts-ignore-error
+          parsedData.collection.products.products[3].variants,
+          "gid://shopify/ProductVariant/43342801666306"
+        )[0].quantity,
         name: "Space Kandy:",
         description:
           "An out-of-this-world blend of sweetness and cosmic tanginess, Space Kandy propels you through a galaxy of flavor, ensuring every sip is an interstellar adventure across your taste buds.",
