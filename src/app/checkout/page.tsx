@@ -19,6 +19,7 @@ import { CartClientServices } from "@/shopify/services/client/cart.services.clie
 import { useMutation, useQuery } from "@apollo/client";
 import {
   addCartItemMutation,
+  applyDiscountMutation,
   createCartMutation,
 } from "@/shopify/graphql/mutations/cart.mutations";
 import Cookies from "js-cookie";
@@ -91,12 +92,17 @@ export default function Checkout() {
       });
     }
   }, [variantId]);
-
+  const [discountCode] = useMutation(applyDiscountMutation);
   const checkout = async () => {
     const cartData = await CartClientServices.addCartItem(addCart, createCart, {
       cartId: cart,
       merchandiseId: variantId!,
       quantity: 1,
+    });
+
+    const discount = await CartClientServices.applyDiscount(discountCode, {
+      cartId: cartData.cart.id!,
+      codes: ["FREEKAPSOFFER"],
     });
     va.track("Checkout");
     router.push(cartData.cart.checkoutUrl!);

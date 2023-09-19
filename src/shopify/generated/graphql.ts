@@ -87,7 +87,14 @@ export type ApiVersion = {
   displayName: Scalars['String'];
   /** The unique identifier of an ApiVersion. All supported API versions have a date-based (YYYY-MM) or `unstable` handle. */
   handle: Scalars['String'];
-  /** Whether the version is actively supported by Shopify. Supported API versions are guaranteed to be stable. Unsupported API versions include unstable, release candidate, and end-of-life versions that are marked as unsupported. For more information, refer to [Versioning](https://shopify.dev/api/usage/versioning). */
+  /**
+   * Whether the version is actively supported by Shopify. Supported API versions
+   * are guaranteed to be stable. Unsupported API versions include unstable,
+   * release candidate, and end-of-life versions that are marked as unsupported.
+   * For more information, refer to
+   * [Versioning](https://shopify.dev/api/usage/versioning).
+   *
+   */
   supported: Scalars['Boolean'];
 };
 
@@ -172,10 +179,7 @@ export type Article = HasMetafields & Node & OnlineStorePublishable & {
   excerpt?: Maybe<Scalars['String']>;
   /** The excerpt of the article, complete with HTML formatting. */
   excerptHtml?: Maybe<Scalars['HTML']>;
-  /**
-   * A human-friendly unique string for the Article automatically generated from its title.
-   *
-   */
+  /** A human-friendly unique string for the Article automatically generated from its title. */
   handle: Scalars['String'];
   /** A globally-unique ID. */
   id: Scalars['ID'];
@@ -183,10 +187,7 @@ export type Article = HasMetafields & Node & OnlineStorePublishable & {
   image?: Maybe<Image>;
   /** Returns a metafield found by namespace and key. */
   metafield?: Maybe<Metafield>;
-  /**
-   * The metafields associated with the resource matching the supplied list of namespaces and keys.
-   *
-   */
+  /** The metafields associated with the resource matching the supplied list of namespaces and keys. */
   metafields: Array<Maybe<Metafield>>;
   /** The URL used for viewing the resource on the shop's Online Store. Returns `null` if the resource is currently not published to the Online Store sales channel. */
   onlineStoreUrl?: Maybe<Scalars['URL']>;
@@ -194,7 +195,10 @@ export type Article = HasMetafields & Node & OnlineStorePublishable & {
   publishedAt: Scalars['DateTime'];
   /** The article’s SEO information. */
   seo?: Maybe<Seo>;
-  /** A categorization that a article can be tagged with. */
+  /**
+   * A categorization that a article can be tagged with.
+   *
+   */
   tags: Array<Scalars['String']>;
   /** The article’s name. */
   title: Scalars['String'];
@@ -347,7 +351,13 @@ export type AvailableShippingRates = {
   shippingRates?: Maybe<Array<ShippingRate>>;
 };
 
-/** Represents a cart line common fields. */
+/**
+ * An object with an ID field to support global identification, in accordance with the
+ * [Relay specification](https://relay.dev/graphql/objectidentification.htm#sec-Node-Interface).
+ * This interface is used by the [node](https://shopify.dev/api/admin-graphql/unstable/queries/node)
+ * and [nodes](https://shopify.dev/api/admin-graphql/unstable/queries/nodes) queries.
+ *
+ */
 export type BaseCartLine = {
   /** An attribute associated with the cart line. */
   attribute?: Maybe<Attribute>;
@@ -373,7 +383,13 @@ export type BaseCartLine = {
 };
 
 
-/** Represents a cart line common fields. */
+/**
+ * An object with an ID field to support global identification, in accordance with the
+ * [Relay specification](https://relay.dev/graphql/objectidentification.htm#sec-Node-Interface).
+ * This interface is used by the [node](https://shopify.dev/api/admin-graphql/unstable/queries/node)
+ * and [nodes](https://shopify.dev/api/admin-graphql/unstable/queries/nodes) queries.
+ *
+ */
 export type BaseCartLineAttributeArgs = {
   key: Scalars['String'];
 };
@@ -422,10 +438,7 @@ export type Blog = HasMetafields & Node & OnlineStorePublishable & {
   id: Scalars['ID'];
   /** Returns a metafield found by namespace and key. */
   metafield?: Maybe<Metafield>;
-  /**
-   * The metafields associated with the resource matching the supplied list of namespaces and keys.
-   *
-   */
+  /** The metafields associated with the resource matching the supplied list of namespaces and keys. */
   metafields: Array<Maybe<Metafield>>;
   /** The URL used for viewing the resource on the shop's Online Store. Returns `null` if the resource is currently not published to the Online Store sales channel. */
   onlineStoreUrl?: Maybe<Scalars['URL']>;
@@ -581,11 +594,16 @@ export type Cart = HasMetafields & Node & {
   attribute?: Maybe<Attribute>;
   /** The attributes associated with the cart. Attributes are represented as key-value pairs. */
   attributes: Array<Attribute>;
-  /** Information about the buyer that is interacting with the cart. */
+  /** Information about the buyer that's interacting with the cart. */
   buyerIdentity: CartBuyerIdentity;
   /** The URL of the checkout for the cart. */
   checkoutUrl: Scalars['URL'];
-  /** The estimated costs that the buyer will pay at checkout. The costs are subject to change and changes will be reflected at checkout. The `cost` field uses the `buyerIdentity` field to determine [international pricing](https://shopify.dev/custom-storefronts/internationalization/international-pricing). */
+  /**
+   * The estimated costs that the buyer will pay at checkout. The costs are subject
+   * to change and changes will be reflected at checkout. The `cost` field uses the
+   * `buyerIdentity` field to determine [international pricing](https://shopify.dev/custom-storefronts/internationalization/international-pricing).
+   *
+   */
   cost: CartCost;
   /** The date and time when the cart was created. */
   createdAt: Scalars['DateTime'];
@@ -597,10 +615,7 @@ export type Cart = HasMetafields & Node & {
   deliveryGroups: CartDeliveryGroupConnection;
   /** The discounts that have been applied to the entire cart. */
   discountAllocations: Array<CartDiscountAllocation>;
-  /**
-   * The case-insensitive discount codes that the customer added at checkout.
-   *
-   */
+  /** The case-insensitive discount codes that the customer added at checkout. */
   discountCodes: Array<CartDiscountCode>;
   /**
    * The estimated costs that the buyer will pay at checkout.
@@ -617,12 +632,9 @@ export type Cart = HasMetafields & Node & {
   lines: BaseCartLineConnection;
   /** Returns a metafield found by namespace and key. */
   metafield?: Maybe<Metafield>;
-  /**
-   * The metafields associated with the resource matching the supplied list of namespaces and keys.
-   *
-   */
+  /** The metafields associated with the resource matching the supplied list of namespaces and keys. */
   metafields: Array<Maybe<Metafield>>;
-  /** A note that is associated with the cart. For example, the note can be a personalized message to the buyer. */
+  /** A note that's associated with the cart. For example, the note can be a personalized message to the buyer. */
   note?: Maybe<Scalars['String']>;
   /** The total number of items in the cart. */
   totalQuantity: Scalars['Int'];
@@ -731,9 +743,9 @@ export type CartBuyerIdentity = {
    *
    */
   deliveryAddressPreferences: Array<DeliveryAddress>;
-  /** The email address of the buyer that is interacting with the cart. */
+  /** The email address of the buyer that's interacting with the cart. */
   email?: Maybe<Scalars['String']>;
-  /** The phone number of the buyer that is interacting with the cart. */
+  /** The phone number of the buyer that's interacting with the cart. */
   phone?: Maybe<Scalars['String']>;
   /**
    * A set of wallet preferences tied to the buyer that is interacting with the cart.
@@ -860,7 +872,13 @@ export type CartCompletionSuccess = {
  */
 export type CartCost = {
   __typename?: 'CartCost';
-  /** The estimated amount, before taxes and discounts, for the customer to pay at checkout. The checkout charge amount doesn't include any deferred payments that'll be paid at a later date. If the cart has no deferred payments, then the checkout charge amount is equivalent to `subtotalAmount`. */
+  /**
+   * The estimated amount, before taxes and discounts, for the customer to pay at
+   * checkout. The checkout charge amount doesn't include any deferred payments
+   * that'll be paid at a later date. If the cart has no deferred payments, then
+   * the checkout charge amount is equivalent to `subtotalAmount`.
+   *
+   */
   checkoutChargeAmount: MoneyV2;
   /** The amount, before taxes and cart-level discounts, for the customer to pay. */
   subtotalAmount: MoneyV2;
@@ -1080,7 +1098,10 @@ export type CartInput = {
   lines?: InputMaybe<Array<CartLineInput>>;
   /** The metafields to associate with this cart. */
   metafields?: InputMaybe<Array<CartInputMetafieldInput>>;
-  /** A note that is associated with the cart. For example, the note can be a personalized message to the buyer. */
+  /**
+   * A note that's associated with the cart. For example, the note can be a personalized message to the buyer.
+   *
+   */
   note?: InputMaybe<Scalars['String']>;
 };
 
@@ -1146,7 +1167,10 @@ export type CartLineCost = {
   totalAmount: MoneyV2;
 };
 
-/** The estimated cost of the merchandise line that the buyer will pay at checkout. */
+/**
+ * The estimated cost of the merchandise line that the buyer will pay at checkout.
+ *
+ */
 export type CartLineEstimatedCost = {
   __typename?: 'CartLineEstimatedCost';
   /** The amount of the merchandise line. */
@@ -1384,7 +1408,7 @@ export type Checkout = Node & {
   createdAt: Scalars['DateTime'];
   /** The currency code for the checkout. */
   currencyCode: CurrencyCode;
-  /** A list of extra information that is added to the checkout. */
+  /** A list of extra information that's added to the checkout. */
   customAttributes: Array<Attribute>;
   /** Discounts that have been applied on the checkout. */
   discountApplications: DiscountApplicationConnection;
@@ -1400,7 +1424,7 @@ export type Checkout = Node & {
   note?: Maybe<Scalars['String']>;
   /** The resulting order from a paid checkout. */
   order?: Maybe<Order>;
-  /** The Order Status Page for this Checkout, null when checkout is not completed. */
+  /** The Order Status Page for this Checkout, null when checkout isn't completed. */
   orderStatusUrl?: Maybe<Scalars['URL']>;
   /** The amount left to be paid. This is equal to the cost of the line items, taxes, and shipping, minus discounts and gift cards. */
   paymentDue: MoneyV2;
@@ -1426,7 +1450,7 @@ export type Checkout = Node & {
    *
    */
   shippingDiscountAllocations: Array<DiscountAllocation>;
-  /** Once a shipping rate is selected by the customer it is transitioned to a `shipping_line` object. */
+  /** Once a shipping rate is selected by the customer it's transitioned to a `shipping_line` object. */
   shippingLine?: Maybe<ShippingRate>;
   /** The price at checkout before shipping and taxes. */
   subtotalPrice: MoneyV2;
@@ -1491,7 +1515,7 @@ export type CheckoutAttributesUpdateV2Input = {
    *
    */
   allowPartialAddresses?: InputMaybe<Scalars['Boolean']>;
-  /** A list of extra information that is added to the checkout. */
+  /** A list of extra information that's added to the checkout. */
   customAttributes?: InputMaybe<Array<AttributeInput>>;
   /** The text of an optional note that a shop owner can attach to the checkout. */
   note?: InputMaybe<Scalars['String']>;
@@ -1586,7 +1610,7 @@ export type CheckoutCreateInput = {
   allowPartialAddresses?: InputMaybe<Scalars['Boolean']>;
   /** The identity of the customer associated with the checkout. */
   buyerIdentity?: InputMaybe<CheckoutBuyerIdentityInput>;
-  /** A list of extra information that is added to the checkout. */
+  /** A list of extra information that's added to the checkout. */
   customAttributes?: InputMaybe<Array<AttributeInput>>;
   /** The email with which the customer wants to checkout. */
   email?: InputMaybe<Scalars['String']>;
@@ -1967,7 +1991,11 @@ export type CheckoutUserError = DisplayableError & {
   message: Scalars['String'];
 };
 
-/** A collection represents a grouping of products that a shop owner can create to organize them or make their shops easier to browse. */
+/**
+ * A collection represents a grouping of products that a shop owner can create to
+ * organize them or make their shops easier to browse.
+ *
+ */
 export type Collection = HasMetafields & Node & OnlineStorePublishable & {
   __typename?: 'Collection';
   /** Stripped description of the collection, single line with HTML tags removed. */
@@ -1986,10 +2014,7 @@ export type Collection = HasMetafields & Node & OnlineStorePublishable & {
   image?: Maybe<Image>;
   /** Returns a metafield found by namespace and key. */
   metafield?: Maybe<Metafield>;
-  /**
-   * The metafields associated with the resource matching the supplied list of namespaces and keys.
-   *
-   */
+  /** The metafields associated with the resource matching the supplied list of namespaces and keys. */
   metafields: Array<Maybe<Metafield>>;
   /** The URL used for viewing the resource on the shop's Online Store. Returns `null` if the resource is currently not published to the Online Store sales channel. */
   onlineStoreUrl?: Maybe<Scalars['URL']>;
@@ -2004,26 +2029,42 @@ export type Collection = HasMetafields & Node & OnlineStorePublishable & {
 };
 
 
-/** A collection represents a grouping of products that a shop owner can create to organize them or make their shops easier to browse. */
+/**
+ * A collection represents a grouping of products that a shop owner can create to
+ * organize them or make their shops easier to browse.
+ *
+ */
 export type CollectionDescriptionArgs = {
   truncateAt?: InputMaybe<Scalars['Int']>;
 };
 
 
-/** A collection represents a grouping of products that a shop owner can create to organize them or make their shops easier to browse. */
+/**
+ * A collection represents a grouping of products that a shop owner can create to
+ * organize them or make their shops easier to browse.
+ *
+ */
 export type CollectionMetafieldArgs = {
   key: Scalars['String'];
   namespace: Scalars['String'];
 };
 
 
-/** A collection represents a grouping of products that a shop owner can create to organize them or make their shops easier to browse. */
+/**
+ * A collection represents a grouping of products that a shop owner can create to
+ * organize them or make their shops easier to browse.
+ *
+ */
 export type CollectionMetafieldsArgs = {
   identifiers: Array<HasMetafieldsIdentifier>;
 };
 
 
-/** A collection represents a grouping of products that a shop owner can create to organize them or make their shops easier to browse. */
+/**
+ * A collection represents a grouping of products that a shop owner can create to
+ * organize them or make their shops easier to browse.
+ *
+ */
 export type CollectionProductsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -2745,7 +2786,8 @@ export type Currency = {
 };
 
 /**
- * The three-letter currency codes that represent the world currencies used in stores. These include standard ISO 4217 codes, legacy codes,
+ * The three-letter currency codes that represent the world currencies used in
+ * stores. These include standard ISO 4217 codes, legacy codes,
  * and non-standard codes.
  *
  */
@@ -3108,10 +3150,7 @@ export type Customer = HasMetafields & {
   lastName?: Maybe<Scalars['String']>;
   /** Returns a metafield found by namespace and key. */
   metafield?: Maybe<Metafield>;
-  /**
-   * The metafields associated with the resource matching the supplied list of namespaces and keys.
-   *
-   */
+  /** The metafields associated with the resource matching the supplied list of namespaces and keys. */
   metafields: Array<Maybe<Metafield>>;
   /** The number of orders that the customer has made at the store in their lifetime. */
   numberOfOrders: Scalars['UnsignedInt64'];
@@ -3202,11 +3241,6 @@ export type CustomerAccessTokenCreateWithMultipassPayload = {
   customerAccessToken?: Maybe<CustomerAccessToken>;
   /** The list of errors that occurred from executing the mutation. */
   customerUserErrors: Array<CustomerUserError>;
-  /**
-   * The list of errors that occurred from executing the mutation.
-   * @deprecated Use `customerUserErrors` instead.
-   */
-  userErrors: Array<UserError>;
 };
 
 /** Return type for `customerAccessTokenDelete` mutation. */
@@ -3238,11 +3272,6 @@ export type CustomerActivateByUrlPayload = {
   customerAccessToken?: Maybe<CustomerAccessToken>;
   /** The list of errors that occurred from executing the mutation. */
   customerUserErrors: Array<CustomerUserError>;
-  /**
-   * The list of errors that occurred from executing the mutation.
-   * @deprecated Use `customerUserErrors` instead.
-   */
-  userErrors: Array<UserError>;
 };
 
 /** The input fields to activate a customer. */
@@ -3742,7 +3771,9 @@ export type FilterValue = {
   /**
    * An input object that can be used to filter by this value on the parent field.
    *
-   * The value is provided as a helper for building dynamic filtering UI. For example, if you have a list of selected `FilterValue` objects, you can combine their respective `input` values to use in a subsequent query.
+   * The value is provided as a helper for building dynamic filtering UI. For
+   * example, if you have a list of selected `FilterValue` objects, you can combine
+   * their respective `input` values to use in a subsequent query.
    *
    */
   input: Scalars['JSON'];
@@ -3854,10 +3885,7 @@ export type GeoCoordinateInput = {
 export type HasMetafields = {
   /** Returns a metafield found by namespace and key. */
   metafield?: Maybe<Metafield>;
-  /**
-   * The metafields associated with the resource matching the supplied list of namespaces and keys.
-   *
-   */
+  /** The metafields associated with the resource matching the supplied list of namespaces and keys. */
   metafields: Array<Maybe<Metafield>>;
 };
 
@@ -3878,7 +3906,7 @@ export type HasMetafieldsMetafieldsArgs = {
 export type HasMetafieldsIdentifier = {
   /** The identifier for the metafield. */
   key: Scalars['String'];
-  /** A container for a set of metafields. */
+  /** The container the metafield belongs to. */
   namespace: Scalars['String'];
 };
 
@@ -3887,7 +3915,7 @@ export type Image = {
   __typename?: 'Image';
   /** A word or phrase to share the nature or contents of an image. */
   altText?: Maybe<Scalars['String']>;
-  /** The original height of the image in pixels. Returns `null` if the image is not hosted by Shopify. */
+  /** The original height of the image in pixels. Returns `null` if the image isn't hosted by Shopify. */
   height?: Maybe<Scalars['Int']>;
   /** A unique ID for the image. */
   id?: Maybe<Scalars['ID']>;
@@ -3908,7 +3936,7 @@ export type Image = {
    * The location of the transformed image as a URL.
    *
    * All transformation arguments are considered "best-effort". If they can be applied to an image, they will be.
-   * Otherwise any transformations which an image type does not support will be ignored.
+   * Otherwise any transformations which an image type doesn't support will be ignored.
    *
    * @deprecated Use `url(transform:)` instead
    */
@@ -3924,7 +3952,7 @@ export type Image = {
    *
    */
   url: Scalars['URL'];
-  /** The original width of the image in pixels. Returns `null` if the image is not hosted by Shopify. */
+  /** The original width of the image in pixels. Returns `null` if the image isn't hosted by Shopify. */
   width?: Maybe<Scalars['Int']>;
 };
 
@@ -3983,15 +4011,18 @@ export type ImageEdge = {
 /**
  * The available options for transforming an image.
  *
- * All transformation options are considered best effort. Any transformation that the original image type doesn't support will be ignored.
+ * All transformation options are considered best effort. Any transformation that
+ * the original image type doesn't support will be ignored.
  *
  */
 export type ImageTransformInput = {
   /**
    * The region of the image to remain after cropping.
-   * Must be used in conjunction with the `maxWidth` and/or `maxHeight` fields, where the `maxWidth` and `maxHeight` aren't equal.
+   * Must be used in conjunction with the `maxWidth` and/or `maxHeight` fields,
+   * where the `maxWidth` and `maxHeight` aren't equal.
    * The `crop` argument should coincide with the smaller value. A smaller `maxWidth` indicates a `LEFT` or `RIGHT` crop, while
-   * a smaller `maxHeight` indicates a `TOP` or `BOTTOM` crop. For example, `{ maxWidth: 5, maxHeight: 10, crop: LEFT }` will result
+   * a smaller `maxHeight` indicates a `TOP` or `BOTTOM` crop. For example, `{
+   * maxWidth: 5, maxHeight: 10, crop: LEFT }` will result
    * in an image with a width of 5 and height of 10, where the right side of the image is removed.
    *
    */
@@ -4062,6 +4093,8 @@ export enum LanguageCode {
   Ca = 'CA',
   /** Chechen. */
   Ce = 'CE',
+  /** Central Kurdish. */
+  Ckb = 'CKB',
   /** Czech. */
   Cs = 'CS',
   /** Church Slavic. */
@@ -4094,6 +4127,8 @@ export enum LanguageCode {
   Ff = 'FF',
   /** Finnish. */
   Fi = 'FI',
+  /** Filipino. */
+  Fil = 'FIL',
   /** Faroese. */
   Fo = 'FO',
   /** French. */
@@ -4160,6 +4195,8 @@ export enum LanguageCode {
   Kw = 'KW',
   /** Kyrgyz. */
   Ky = 'KY',
+  /** Latin. */
+  La = 'LA',
   /** Luxembourgish. */
   Lb = 'LB',
   /** Ganda. */
@@ -4184,6 +4221,8 @@ export enum LanguageCode {
   Ml = 'ML',
   /** Mongolian. */
   Mn = 'MN',
+  /** Moldavian. */
+  Mo = 'MO',
   /** Marathi. */
   Mr = 'MR',
   /** Malay. */
@@ -4234,12 +4273,18 @@ export enum LanguageCode {
   Ru = 'RU',
   /** Kinyarwanda. */
   Rw = 'RW',
+  /** Sanskrit. */
+  Sa = 'SA',
+  /** Sardinian. */
+  Sc = 'SC',
   /** Sindhi. */
   Sd = 'SD',
   /** Northern Sami. */
   Se = 'SE',
   /** Sango. */
   Sg = 'SG',
+  /** Serbo-Croatian. */
+  Sh = 'SH',
   /** Sinhala. */
   Si = 'SI',
   /** Slovak. */
@@ -4332,10 +4377,7 @@ export type Location = HasMetafields & Node & {
   id: Scalars['ID'];
   /** Returns a metafield found by namespace and key. */
   metafield?: Maybe<Metafield>;
-  /**
-   * The metafields associated with the resource matching the supplied list of namespaces and keys.
-   *
-   */
+  /** The metafields associated with the resource matching the supplied list of namespaces and keys. */
   metafields: Array<Maybe<Metafield>>;
   /** The name of the location. */
   name: Scalars['String'];
@@ -4437,20 +4479,11 @@ export type MailingAddress = Node & {
    *
    */
   address2?: Maybe<Scalars['String']>;
-  /**
-   * The name of the city, district, village, or town.
-   *
-   */
+  /** The name of the city, district, village, or town. */
   city?: Maybe<Scalars['String']>;
-  /**
-   * The name of the customer's company or organization.
-   *
-   */
+  /** The name of the customer's company or organization. */
   company?: Maybe<Scalars['String']>;
-  /**
-   * The name of the country.
-   *
-   */
+  /** The name of the country. */
   country?: Maybe<Scalars['String']>;
   /**
    * The two-letter code for the country of the address.
@@ -4481,10 +4514,7 @@ export type MailingAddress = Node & {
   latitude?: Maybe<Scalars['Float']>;
   /** The longitude coordinate of the customer address. */
   longitude?: Maybe<Scalars['Float']>;
-  /**
-   * The full name of the customer, based on firstName and lastName.
-   *
-   */
+  /** The full name of the customer, based on firstName and lastName. */
   name?: Maybe<Scalars['String']>;
   /**
    * A unique phone number for the customer.
@@ -4612,10 +4642,7 @@ export type Market = HasMetafields & Node & {
   id: Scalars['ID'];
   /** Returns a metafield found by namespace and key. */
   metafield?: Maybe<Metafield>;
-  /**
-   * The metafields associated with the resource matching the supplied list of namespaces and keys.
-   *
-   */
+  /** The metafields associated with the resource matching the supplied list of namespaces and keys. */
   metafields: Array<Maybe<Metafield>>;
 };
 
@@ -4749,10 +4776,7 @@ export type Menu = Node & {
   title: Scalars['String'];
 };
 
-/**
- * A menu item within a parent menu.
- *
- */
+/** A menu item within a parent menu. */
 export type MenuItem = Node & {
   __typename?: 'MenuItem';
   /** A globally-unique ID. */
@@ -5216,8 +5240,9 @@ export type Mutation = {
    * [`customerReset`](https://shopify.dev/api/storefront/latest/mutations/customerReset) mutation to reset the
    * customer password.
    *
-   * This mutation is throttled by IP. With authenticated access,
+   * This mutation is throttled by IP. With private access,
    * you can provide a [`Shopify-Storefront-Buyer-IP`](https://shopify.dev/api/usage/authentication#optional-ip-header) instead of the request IP.
+   * The header is case-sensitive and must be sent as `Shopify-Storefront-Buyer-IP`.
    *
    * Make sure that the value provided to `Shopify-Storefront-Buyer-IP` is trusted. Unthrottled access to this
    * mutation presents a security risk.
@@ -5578,7 +5603,7 @@ export type Order = HasMetafields & Node & {
   canceledAt?: Maybe<Scalars['DateTime']>;
   /** The code of the currency used for the payment. */
   currencyCode: CurrencyCode;
-  /** The subtotal of line items and their discounts, excluding line items that have been removed. Does not contain order-level discounts, duties, shipping costs, or shipping discounts. Taxes are not included unless the order is a taxes-included order. */
+  /** The subtotal of line items and their discounts, excluding line items that have been removed. Does not contain order-level discounts, duties, shipping costs, or shipping discounts. Taxes aren't included unless the order is a taxes-included order. */
   currentSubtotalPrice: MoneyV2;
   /** The total cost of duties for the order, including refunds. */
   currentTotalDuties?: Maybe<MoneyV2>;
@@ -5608,10 +5633,7 @@ export type Order = HasMetafields & Node & {
   lineItems: OrderLineItemConnection;
   /** Returns a metafield found by namespace and key. */
   metafield?: Maybe<Metafield>;
-  /**
-   * The metafields associated with the resource matching the supplied list of namespaces and keys.
-   *
-   */
+  /** The metafields associated with the resource matching the supplied list of namespaces and keys. */
   metafields: Array<Maybe<Metafield>>;
   /**
    * Unique identifier for the order that appears on the order.
@@ -5814,7 +5836,7 @@ export type OrderLineItem = {
   discountAllocations: Array<DiscountAllocation>;
   /** The total price of the line item, including discounts, and displayed in the presentment currency. */
   discountedTotalPrice: MoneyV2;
-  /** The total price of the line item, not including any discounts. The total price is calculated using the original unit price multiplied by the quantity, and it is displayed in the presentment currency. */
+  /** The total price of the line item, not including any discounts. The total price is calculated using the original unit price multiplied by the quantity, and it's displayed in the presentment currency. */
   originalTotalPrice: MoneyV2;
   /** The number of products variants associated to the line item. */
   quantity: Scalars['Int'];
@@ -5881,10 +5903,7 @@ export type Page = HasMetafields & Node & OnlineStorePublishable & {
   id: Scalars['ID'];
   /** Returns a metafield found by namespace and key. */
   metafield?: Maybe<Metafield>;
-  /**
-   * The metafields associated with the resource matching the supplied list of namespaces and keys.
-   *
-   */
+  /** The metafields associated with the resource matching the supplied list of namespaces and keys. */
   metafields: Array<Maybe<Metafield>>;
   /** The URL used for viewing the resource on the shop's Online Store. Returns `null` if the resource is currently not published to the Online Store sales channel. */
   onlineStoreUrl?: Maybe<Scalars['URL']>;
@@ -6017,7 +6036,11 @@ export type PaymentSettings = {
   countryCode: CountryCode;
   /** The three-letter code for the shop's primary currency. */
   currencyCode: CurrencyCode;
-  /** A list of enabled currencies (ISO 4217 format) that the shop accepts. Merchants can enable currencies from their Shopify Payments settings in the Shopify admin. */
+  /**
+   * A list of enabled currencies (ISO 4217 format) that the shop accepts.
+   * Merchants can enable currencies from their Shopify Payments settings in the Shopify admin.
+   *
+   */
   enabledPresentmentCurrencies: Array<CurrencyCode>;
   /** The shop’s Shopify Payments account ID. */
   shopifyPaymentsAccountId?: Maybe<Scalars['String']>;
@@ -6062,7 +6085,10 @@ export type PricingValue = MoneyV2 | PricingPercentageValue;
 
 /**
  * A product represents an individual item for sale in a Shopify store. Products are often physical, but they don't have to be.
- * For example, a digital download (such as a movie, music or ebook file) also qualifies as a product, as do services (such as equipment rental, work for hire, customization of another product or an extended warranty).
+ * For example, a digital download (such as a movie, music or ebook file) also
+ * qualifies as a product, as do services (such as equipment rental, work for hire,
+ * customization of another product or an extended warranty).
+ *
  */
 export type Product = HasMetafields & Node & OnlineStorePublishable & {
   __typename?: 'Product';
@@ -6101,10 +6127,7 @@ export type Product = HasMetafields & Node & OnlineStorePublishable & {
   media: MediaConnection;
   /** Returns a metafield found by namespace and key. */
   metafield?: Maybe<Metafield>;
-  /**
-   * The metafields associated with the resource matching the supplied list of namespaces and keys.
-   *
-   */
+  /** The metafields associated with the resource matching the supplied list of namespaces and keys. */
   metafields: Array<Maybe<Metafield>>;
   /** The URL used for viewing the resource on the shop's Online Store. Returns `null` if the resource is currently not published to the Online Store sales channel. */
   onlineStoreUrl?: Maybe<Scalars['URL']>;
@@ -6156,7 +6179,10 @@ export type Product = HasMetafields & Node & OnlineStorePublishable & {
 
 /**
  * A product represents an individual item for sale in a Shopify store. Products are often physical, but they don't have to be.
- * For example, a digital download (such as a movie, music or ebook file) also qualifies as a product, as do services (such as equipment rental, work for hire, customization of another product or an extended warranty).
+ * For example, a digital download (such as a movie, music or ebook file) also
+ * qualifies as a product, as do services (such as equipment rental, work for hire,
+ * customization of another product or an extended warranty).
+ *
  */
 export type ProductCollectionsArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -6169,7 +6195,10 @@ export type ProductCollectionsArgs = {
 
 /**
  * A product represents an individual item for sale in a Shopify store. Products are often physical, but they don't have to be.
- * For example, a digital download (such as a movie, music or ebook file) also qualifies as a product, as do services (such as equipment rental, work for hire, customization of another product or an extended warranty).
+ * For example, a digital download (such as a movie, music or ebook file) also
+ * qualifies as a product, as do services (such as equipment rental, work for hire,
+ * customization of another product or an extended warranty).
+ *
  */
 export type ProductDescriptionArgs = {
   truncateAt?: InputMaybe<Scalars['Int']>;
@@ -6178,7 +6207,10 @@ export type ProductDescriptionArgs = {
 
 /**
  * A product represents an individual item for sale in a Shopify store. Products are often physical, but they don't have to be.
- * For example, a digital download (such as a movie, music or ebook file) also qualifies as a product, as do services (such as equipment rental, work for hire, customization of another product or an extended warranty).
+ * For example, a digital download (such as a movie, music or ebook file) also
+ * qualifies as a product, as do services (such as equipment rental, work for hire,
+ * customization of another product or an extended warranty).
+ *
  */
 export type ProductImagesArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -6192,7 +6224,10 @@ export type ProductImagesArgs = {
 
 /**
  * A product represents an individual item for sale in a Shopify store. Products are often physical, but they don't have to be.
- * For example, a digital download (such as a movie, music or ebook file) also qualifies as a product, as do services (such as equipment rental, work for hire, customization of another product or an extended warranty).
+ * For example, a digital download (such as a movie, music or ebook file) also
+ * qualifies as a product, as do services (such as equipment rental, work for hire,
+ * customization of another product or an extended warranty).
+ *
  */
 export type ProductMediaArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -6206,7 +6241,10 @@ export type ProductMediaArgs = {
 
 /**
  * A product represents an individual item for sale in a Shopify store. Products are often physical, but they don't have to be.
- * For example, a digital download (such as a movie, music or ebook file) also qualifies as a product, as do services (such as equipment rental, work for hire, customization of another product or an extended warranty).
+ * For example, a digital download (such as a movie, music or ebook file) also
+ * qualifies as a product, as do services (such as equipment rental, work for hire,
+ * customization of another product or an extended warranty).
+ *
  */
 export type ProductMetafieldArgs = {
   key: Scalars['String'];
@@ -6216,7 +6254,10 @@ export type ProductMetafieldArgs = {
 
 /**
  * A product represents an individual item for sale in a Shopify store. Products are often physical, but they don't have to be.
- * For example, a digital download (such as a movie, music or ebook file) also qualifies as a product, as do services (such as equipment rental, work for hire, customization of another product or an extended warranty).
+ * For example, a digital download (such as a movie, music or ebook file) also
+ * qualifies as a product, as do services (such as equipment rental, work for hire,
+ * customization of another product or an extended warranty).
+ *
  */
 export type ProductMetafieldsArgs = {
   identifiers: Array<HasMetafieldsIdentifier>;
@@ -6225,7 +6266,10 @@ export type ProductMetafieldsArgs = {
 
 /**
  * A product represents an individual item for sale in a Shopify store. Products are often physical, but they don't have to be.
- * For example, a digital download (such as a movie, music or ebook file) also qualifies as a product, as do services (such as equipment rental, work for hire, customization of another product or an extended warranty).
+ * For example, a digital download (such as a movie, music or ebook file) also
+ * qualifies as a product, as do services (such as equipment rental, work for hire,
+ * customization of another product or an extended warranty).
+ *
  */
 export type ProductOptionsArgs = {
   first?: InputMaybe<Scalars['Int']>;
@@ -6234,7 +6278,10 @@ export type ProductOptionsArgs = {
 
 /**
  * A product represents an individual item for sale in a Shopify store. Products are often physical, but they don't have to be.
- * For example, a digital download (such as a movie, music or ebook file) also qualifies as a product, as do services (such as equipment rental, work for hire, customization of another product or an extended warranty).
+ * For example, a digital download (such as a movie, music or ebook file) also
+ * qualifies as a product, as do services (such as equipment rental, work for hire,
+ * customization of another product or an extended warranty).
+ *
  */
 export type ProductSellingPlanGroupsArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -6247,7 +6294,10 @@ export type ProductSellingPlanGroupsArgs = {
 
 /**
  * A product represents an individual item for sale in a Shopify store. Products are often physical, but they don't have to be.
- * For example, a digital download (such as a movie, music or ebook file) also qualifies as a product, as do services (such as equipment rental, work for hire, customization of another product or an extended warranty).
+ * For example, a digital download (such as a movie, music or ebook file) also
+ * qualifies as a product, as do services (such as equipment rental, work for hire,
+ * customization of another product or an extended warranty).
+ *
  */
 export type ProductVariantBySelectedOptionsArgs = {
   selectedOptions: Array<SelectedOptionInput>;
@@ -6256,7 +6306,10 @@ export type ProductVariantBySelectedOptionsArgs = {
 
 /**
  * A product represents an individual item for sale in a Shopify store. Products are often physical, but they don't have to be.
- * For example, a digital download (such as a movie, music or ebook file) also qualifies as a product, as do services (such as equipment rental, work for hire, customization of another product or an extended warranty).
+ * For example, a digital download (such as a movie, music or ebook file) also
+ * qualifies as a product, as do services (such as equipment rental, work for hire,
+ * customization of another product or an extended warranty).
+ *
  */
 export type ProductVariantsArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -6437,7 +6490,10 @@ export enum ProductSortKeys {
   Vendor = 'VENDOR'
 }
 
-/** A product variant represents a different version of a product, such as differing sizes or differing colors. */
+/**
+ * A product variant represents a different version of a product, such as differing sizes or differing colors.
+ *
+ */
 export type ProductVariant = HasMetafields & Node & {
   __typename?: 'ProductVariant';
   /** Indicates if the product variant is available for sale. */
@@ -6455,17 +6511,11 @@ export type ProductVariant = HasMetafields & Node & {
   currentlyNotInStock: Scalars['Boolean'];
   /** A globally-unique ID. */
   id: Scalars['ID'];
-  /**
-   * Image associated with the product variant. This field falls back to the product image if no image is available.
-   *
-   */
+  /** Image associated with the product variant. This field falls back to the product image if no image is available. */
   image?: Maybe<Image>;
   /** Returns a metafield found by namespace and key. */
   metafield?: Maybe<Metafield>;
-  /**
-   * The metafields associated with the resource matching the supplied list of namespaces and keys.
-   *
-   */
+  /** The metafields associated with the resource matching the supplied list of namespaces and keys. */
   metafields: Array<Maybe<Metafield>>;
   /** The product variant’s price. */
   price: MoneyV2;
@@ -6501,20 +6551,29 @@ export type ProductVariant = HasMetafields & Node & {
 };
 
 
-/** A product variant represents a different version of a product, such as differing sizes or differing colors. */
+/**
+ * A product variant represents a different version of a product, such as differing sizes or differing colors.
+ *
+ */
 export type ProductVariantMetafieldArgs = {
   key: Scalars['String'];
   namespace: Scalars['String'];
 };
 
 
-/** A product variant represents a different version of a product, such as differing sizes or differing colors. */
+/**
+ * A product variant represents a different version of a product, such as differing sizes or differing colors.
+ *
+ */
 export type ProductVariantMetafieldsArgs = {
   identifiers: Array<HasMetafieldsIdentifier>;
 };
 
 
-/** A product variant represents a different version of a product, such as differing sizes or differing colors. */
+/**
+ * A product variant represents a different version of a product, such as differing sizes or differing colors.
+ *
+ */
 export type ProductVariantSellingPlanAllocationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6524,7 +6583,10 @@ export type ProductVariantSellingPlanAllocationsArgs = {
 };
 
 
-/** A product variant represents a different version of a product, such as differing sizes or differing colors. */
+/**
+ * A product variant represents a different version of a product, such as differing sizes or differing colors.
+ *
+ */
 export type ProductVariantStoreAvailabilityArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -6600,7 +6662,10 @@ export type QueryRoot = {
    *
    */
   cart?: Maybe<Cart>;
-  /** A poll for the status of the cart checkout completion and order creation. */
+  /**
+   * A poll for the status of the cart checkout completion and order creation.
+   *
+   */
   cartCompletionAttempt?: Maybe<CartCompletionAttemptResult>;
   /** Fetch a specific `Collection` by one of its unique attributes. */
   collection?: Maybe<Collection>;
@@ -6624,12 +6689,10 @@ export type QueryRoot = {
    *
    * When sorting by distance, you must specify a location via the `near` argument.
    *
-   */
-  locations: LocationConnection;
-  /**
-   * Retrieve a [navigation menu](https://help.shopify.com/manual/online-store/menus-and-links) by its handle.
    *
    */
+  locations: LocationConnection;
+  /** Retrieve a [navigation menu](https://help.shopify.com/manual/online-store/menus-and-links) by its handle. */
   menu?: Maybe<Menu>;
   /** Fetch a specific Metaobject by one of its unique identifiers. */
   metaobject?: Maybe<Metaobject>;
@@ -7199,10 +7262,7 @@ export type Shop = HasMetafields & Node & {
   id: Scalars['ID'];
   /** Returns a metafield found by namespace and key. */
   metafield?: Maybe<Metafield>;
-  /**
-   * The metafields associated with the resource matching the supplied list of namespaces and keys.
-   *
-   */
+  /** The metafields associated with the resource matching the supplied list of namespaces and keys. */
   metafields: Array<Maybe<Metafield>>;
   /** A string representing the way currency is formatted when the currency isn’t specified. */
   moneyFormat: Scalars['String'];
@@ -7507,7 +7567,7 @@ export type TokenizedPaymentInputV3 = {
   paymentAmount: MoneyInput;
   /** A simple string or JSON containing the required payment data for the tokenized payment. */
   paymentData: Scalars['String'];
-  /** Whether to execute the payment in test mode, if possible. Test mode is not supported in production stores. Defaults to `false`. */
+  /** Whether to execute the payment in test mode, if possible. Test mode isn't supported in production stores. Defaults to `false`. */
   test?: InputMaybe<Scalars['Boolean']>;
   /** The type of payment token. */
   type: PaymentTokenType;
@@ -7676,10 +7736,7 @@ export type UserError = DisplayableError & {
   message: Scalars['String'];
 };
 
-/**
- * The input fields for a filter used to view a subset of products in a collection matching a specific variant option.
- *
- */
+/** The input fields for a filter used to view a subset of products in a collection matching a specific variant option. */
 export type VariantOptionFilter = {
   /** The name of the variant option to filter on. */
   name: Scalars['String'];
@@ -7766,6 +7823,14 @@ export type RemoveCartItemMutationVariables = Exact<{
 
 export type RemoveCartItemMutation = { __typename?: 'Mutation', cartLinesRemove?: { __typename?: 'CartLinesRemovePayload', cart?: { __typename?: 'Cart', id: string } | null } | null };
 
+export type ApplyDiscountMutationVariables = Exact<{
+  cartId: Scalars['ID'];
+  discountCodes?: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
+}>;
+
+
+export type ApplyDiscountMutation = { __typename?: 'Mutation', cartDiscountCodesUpdate?: { __typename?: 'CartDiscountCodesUpdatePayload', userErrors: Array<{ __typename?: 'CartUserError', field?: Array<string> | null, message: string }> } | null };
+
 export type GetCartQueryVariables = Exact<{
   cartId: Scalars['ID'];
 }>;
@@ -7817,6 +7882,7 @@ export const CreateCartDocument = {"kind":"Document","definitions":[{"kind":"Ope
 export const AddCartItemDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"addCartItem"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"cartId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"merchandiseId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"quantity"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"sellingPlanId"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"cartLinesAdd"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"cartId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"cartId"}}},{"kind":"Argument","name":{"kind":"Name","value":"lines"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"merchandiseId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"merchandiseId"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"quantity"},"value":{"kind":"Variable","name":{"kind":"Name","value":"quantity"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"sellingPlanId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"sellingPlanId"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"cart"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"totalQuantity"}},{"kind":"Field","name":{"kind":"Name","value":"checkoutUrl"}}]}}]}}]}}]} as unknown as DocumentNode<AddCartItemMutation, AddCartItemMutationVariables>;
 export const UpdateCartItemsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"updateCartItems"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"cartId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"lines"}},"type":{"kind":"NonNullType","type":{"kind":"ListType","type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"CartLineUpdateInput"}}}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"cartLinesUpdate"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"cartId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"cartId"}}},{"kind":"Argument","name":{"kind":"Name","value":"lines"},"value":{"kind":"Variable","name":{"kind":"Name","value":"lines"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"cart"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]} as unknown as DocumentNode<UpdateCartItemsMutation, UpdateCartItemsMutationVariables>;
 export const RemoveCartItemDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"removeCartItem"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"cartId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"lineIds"}},"type":{"kind":"NonNullType","type":{"kind":"ListType","type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"cartLinesRemove"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"cartId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"cartId"}}},{"kind":"Argument","name":{"kind":"Name","value":"lineIds"},"value":{"kind":"Variable","name":{"kind":"Name","value":"lineIds"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"cart"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]} as unknown as DocumentNode<RemoveCartItemMutation, RemoveCartItemMutationVariables>;
+export const ApplyDiscountDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"applyDiscount"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"cartId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"discountCodes"}},"type":{"kind":"ListType","type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"cartDiscountCodesUpdate"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"cartId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"cartId"}}},{"kind":"Argument","name":{"kind":"Name","value":"discountCodes"},"value":{"kind":"Variable","name":{"kind":"Name","value":"discountCodes"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"userErrors"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"field"}},{"kind":"Field","name":{"kind":"Name","value":"message"}}]}}]}}]}}]} as unknown as DocumentNode<ApplyDiscountMutation, ApplyDiscountMutationVariables>;
 export const GetCartDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getCart"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"cartId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"cart"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"cartId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"checkoutUrl"}},{"kind":"Field","name":{"kind":"Name","value":"cost"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"subtotalAmount"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"amount"}},{"kind":"Field","name":{"kind":"Name","value":"currencyCode"}}]}},{"kind":"Field","name":{"kind":"Name","value":"totalAmount"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"currencyCode"}},{"kind":"Field","name":{"kind":"Name","value":"amount"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"lines"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"250"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"edges"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"merchandise"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"ProductVariant"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"priceV2"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"amount"}},{"kind":"Field","name":{"kind":"Name","value":"currencyCode"}}]}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"altText"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"src"}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"product"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"quantity"}},{"kind":"Field","name":{"kind":"Name","value":"estimatedCost"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"subtotalAmount"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"amount"}},{"kind":"Field","name":{"kind":"Name","value":"currencyCode"}}]}},{"kind":"Field","name":{"kind":"Name","value":"totalAmount"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"currencyCode"}},{"kind":"Field","name":{"kind":"Name","value":"amount"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"cost"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"amountPerQuantity"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"amount"}},{"kind":"Field","name":{"kind":"Name","value":"currencyCode"}}]}},{"kind":"Field","name":{"kind":"Name","value":"subtotalAmount"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"currencyCode"}},{"kind":"Field","name":{"kind":"Name","value":"amount"}}]}}]}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"totalQuantity"}}]}}]}}]} as unknown as DocumentNode<GetCartQuery, GetCartQueryVariables>;
 export const GetCartCountDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getCartCount"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"cartId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"cart"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"cartId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"totalQuantity"}}]}}]}}]} as unknown as DocumentNode<GetCartCountQuery, GetCartCountQueryVariables>;
 export const GetProductSingleDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getProductSingle"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"productId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"ID"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"product"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"productId"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"images"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"250"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"edges"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"altText"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"src"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"priceRange"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"maxVariantPrice"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"amount"}},{"kind":"Field","name":{"kind":"Name","value":"currencyCode"}}]}},{"kind":"Field","name":{"kind":"Name","value":"minVariantPrice"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"amount"}},{"kind":"Field","name":{"kind":"Name","value":"currencyCode"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"seo"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"title"}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"variants"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"250"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"edges"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"priceV2"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"currencyCode"}},{"kind":"Field","name":{"kind":"Name","value":"amount"}}]}},{"kind":"Field","name":{"kind":"Name","value":"availableForSale"}},{"kind":"Field","name":{"kind":"Name","value":"currentlyNotInStock"}},{"kind":"Field","name":{"kind":"Name","value":"quantityAvailable"}},{"kind":"Field","name":{"kind":"Name","value":"compareAtPriceV2"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"currencyCode"}},{"kind":"Field","name":{"kind":"Name","value":"amount"}}]}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"src"}},{"kind":"Field","name":{"kind":"Name","value":"width"}},{"kind":"Field","name":{"kind":"Name","value":"height"}},{"kind":"Field","name":{"kind":"Name","value":"altText"}}]}},{"kind":"Field","name":{"kind":"Name","value":"metafield"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"key"},"value":{"kind":"StringValue","value":"productdata","block":false}},{"kind":"Argument","name":{"kind":"Name","value":"namespace"},"value":{"kind":"StringValue","value":"custom","block":false}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"value"}},{"kind":"Field","name":{"kind":"Name","value":"key"}}]}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"sellingPlanGroups"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"10"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"edges"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"appName"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"options"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"values"}}]}},{"kind":"Field","name":{"kind":"Name","value":"sellingPlans"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"10"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"edges"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"checkoutCharge"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"type"}},{"kind":"Field","name":{"kind":"Name","value":"value"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"MoneyV2"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"amount"}},{"kind":"Field","name":{"kind":"Name","value":"currencyCode"}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"SellingPlanCheckoutChargePercentageValue"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"percentage"}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"options"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"value"}}]}},{"kind":"Field","name":{"kind":"Name","value":"recurringDeliveries"}},{"kind":"Field","name":{"kind":"Name","value":"priceAdjustments"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"adjustmentValue"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"SellingPlanPercentagePriceAdjustment"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"__typename"}},{"kind":"Field","name":{"kind":"Name","value":"adjustmentPercentage"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"orderCount"}}]}}]}}]}}]}}]}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"metafields"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"identifiers"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"namespace"},"value":{"kind":"StringValue","value":"","block":false}},{"kind":"ObjectField","name":{"kind":"Name","value":"key"},"value":{"kind":"StringValue","value":"","block":false}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"value"}},{"kind":"Field","name":{"kind":"Name","value":"key"}},{"kind":"Field","name":{"kind":"Name","value":"namespace"}}]}}]}}]}}]} as unknown as DocumentNode<GetProductSingleQuery, GetProductSingleQueryVariables>;

@@ -66,3 +66,14 @@ export const removeCartItemMutation = graphql(`
     }
   }
 `);
+
+export const applyDiscountMutation = graphql(`
+  mutation applyDiscount($cartId: ID!, $discountCodes: [String!]) {
+    cartDiscountCodesUpdate(cartId: $cartId, discountCodes: $discountCodes) {
+      userErrors {
+        field
+        message
+      }
+    }
+  }
+`);

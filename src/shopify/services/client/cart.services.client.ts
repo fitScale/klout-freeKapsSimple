@@ -1,4 +1,8 @@
-import type { CreateCartMutation, Exact } from "@/shopify/generated/graphql";
+import type {
+  ApplyDiscountMutation,
+  CreateCartMutation,
+  Exact,
+} from "@/shopify/generated/graphql";
 import Cookies from "js-cookie";
 
 import type {
@@ -11,12 +15,14 @@ import type {
   InputMaybe,
 } from "@/shopify/generated/graphql";
 
-import type {
-  MutationFunctionOptions,
-  DefaultContext,
-  ApolloCache,
-  FetchResult,
+import {
+  type MutationFunctionOptions,
+  type DefaultContext,
+  type ApolloCache,
+  type FetchResult,
+  useMutation,
 } from "@apollo/client";
+import { applyDiscountMutation } from "@/shopify/graphql/mutations/cart.mutations";
 
 export namespace CartClientServices {
   export type createCartMutationFn = (
@@ -33,6 +39,38 @@ export namespace CartClientServices {
         >
       | undefined
   ) => Promise<FetchResult<CreateCartMutation>>;
+
+  export type discountMutation = (
+    options?:
+      | MutationFunctionOptions<
+          ApplyDiscountMutation,
+          Exact<{
+            cartId: string;
+            discountCodes?: InputMaybe<string | string[]> | undefined;
+          }>,
+          DefaultContext,
+          ApolloCache<any>
+        >
+      | undefined
+  ) => Promise<FetchResult<ApplyDiscountMutation>>;
+
+  export const applyDiscount = async (
+    mutation: discountMutation,
+    variables: {
+      codes: string[];
+      cartId: string;
+    }
+  ) => {
+    const res = await mutation({
+      variables: {
+        cartId: variables.cartId,
+        discountCodes: variables.codes,
+      },
+    });
+    return {
+      errors: res.data?.cartDiscountCodesUpdate?.userErrors,
+    };
+  };
 
   export const createCart = async (
     mutation: createCartMutationFn,
